@@ -5,3 +5,4 @@ Console.WriteLine("TriCore OS");
 
 logoSchreen logo = new logoSchreen();
 logo.StartUI();
+
