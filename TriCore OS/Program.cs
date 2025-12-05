@@ -1,5 +1,7 @@
-﻿using TriCore_OS;
+﻿
+using TriCore_OS.Grafika;
 
-Console.WriteLine("TriCore OS - start point");
-FileEngine engine = new FileEngine();
-engine.EngineStart();
+Console.WriteLine("TriCore OS");
+
+logoSchreen logo = new logoSchreen();
+logo.StartUI();
