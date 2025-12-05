@@ -19,14 +19,19 @@ namespace TriCore_OS.Grafika
  \  \/  /\/  \/  /\/  \/  /\/  \/  /\/  \/  /\/  \/  /
   '----'  '----'  '----'   '----'  '----'  '----'
 ";
-        private string PositionUI()
+        private void PositionUI()
         {
-              int withConsole = Console.WindowWidth;
-             int heightConsole = Console.WindowHeight;
-            int xPos = 3;
-            int yPos = 10;
-            Console.SetCursorPosition(xPos, yPos);
-            return PositionUI();
+            try
+            {
+                int xPos = 10;
+                int yPos = 10;
+                Console.SetCursorPosition(xPos, yPos);
+                
+            }
+            catch
+            {
+                Console.Write("BUG");
+            }
         }
       
 
@@ -44,61 +49,61 @@ namespace TriCore_OS.Grafika
             PositionUI();
             LogoUI();
             Thread.Sleep(500);
-            Console.WriteLine("[░░░░░░░░░░░░░░░░]   0%  ─⊙─  Starting boot sequence");
+            Console.Write("[░░░░░░░░░░░░░░░░]   0%  ─⊙─  Starting boot sequence");
             Thread.Sleep(500);
             Console.Clear();
             PositionUI(); 
             LogoUI();
-            Console.WriteLine(" [██░░░░░░░░░░░░░░]  10%  ─⊙─  Initializing I/O");
+            Console.Write(" [██░░░░░░░░░░░░░░]  10%  ─⊙─  Initializing I/O");
             Thread.Sleep(700);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [████░░░░░░░░░░░░]  20%  ─⊙─  Loading core drivers");
+            Console.Write(" [████░░░░░░░░░░░░]  20%  ─⊙─  Loading core drivers");
             Thread.Sleep(400);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine("[██████░░░░░░░░░░]  30%  ─⊙─  Detecting hardware");
+            Console.Write("[██████░░░░░░░░░░]  30%  ─⊙─  Detecting hardware");
             Thread.Sleep(400);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [████████░░░░░░░░]  40%  ─⊙─  Mounting virtual FS");
+            Console.Write(" [████████░░░░░░░░]  40%  ─⊙─  Mounting virtual FS");
             Thread.Sleep(400);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [██████████░░░░░░]  50%  ─⊙─  Launching services");
+            Console.Write(" [██████████░░░░░░]  50%  ─⊙─  Launching services");
             Thread.Sleep(700);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine("  [████████████░░░░]  60%  ─⊙─  Network stack online");
+            Console.Write("  [████████████░░░░]  60%  ─⊙─  Network stack online");
             Thread.Sleep(100);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [██████████████░░]  70%  ─⊙─  Security modules ready");
+            Console.Write(" [██████████████░░]  70%  ─⊙─  Security modules ready");
             Thread.Sleep(300);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [████████████████]  80%  ─⊙─  Optimizing system");
+            Console.Write(" [████████████████]  80%  ─⊙─  Optimizing system");
             Thread.Sleep(300);
             Console.Clear();
             PositionUI();
             LogoUI();
-            Console.WriteLine(" [██████████████████░░]  90% ─⊙─  Preparing UI");
+            Console.Write(" [██████████████████░░]  90% ─⊙─  Preparing UI");
             Thread.Sleep(800);
             Console.Clear();
             PositionUI();
             LogoUI();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" [████████████████████] 100% ─⊙─  TriCore ready!");
+            Console.Write(" [████████████████████] 100% ─⊙─  TriCore ready!");
             Thread.Sleep(2000);
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Clear();
+          
         }
         public void StartUI()
         {
