@@ -4,9 +4,9 @@ using TriCore_OS.Grafika;
 
 Console.WriteLine("TriCore OS");
 
-FileEngine fileengine = new FileEngine();
-fileengine.EngineStart();
+//FileEngine fileengine = new FileEngine();
+//fileengine.EngineStart();
 
-//logoSchreen logo = new logoSchreen();
-//logo.StartUI();
+logoSchreen logo = new logoSchreen();
+logo.StartUI();
 
