@@ -21,18 +21,3 @@ logoSchreen logo = new logoSchreen();
 logo.StartUI();
 Console.ReadKey();
 
-
-int maxHeight = Console.LargestWindowHeight;
-int maxWith = Console.LargestWindowWidth;
-
-Console.SetBufferSize(maxWith, maxHeight);
-
-Console.WriteLine("Pre pokracovanie stlac enter");
-Console.ReadLine();
-Console.Clear();
-
-logoSchreen logo = new logoSchreen();
-
-logo.StartUI();
-Console.ReadKey();
-
