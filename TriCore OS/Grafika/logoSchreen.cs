@@ -13,7 +13,7 @@ namespace TriCore_OS.Grafika
     internal class logoSchreen
     {
         private int positionX = 55;
-        private int positionX2 = 35;
+        private int positionX2 = 35;            //dsdsdiwjdw
         private int positionY = 25;
         private string logo = nameof(LoadingUI); 
       
