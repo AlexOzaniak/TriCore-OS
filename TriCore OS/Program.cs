@@ -4,7 +4,14 @@ using TriCore_OS.Grafika;
 
 Console.WriteLine("TriCore OS");
 
+int maxHeight = Console.LargestWindowHeight;
+int maxWith = Console.LargestWindowWidth;
 
+Console.SetBufferSize(maxWith, maxHeight);
+
+Console.WriteLine("Pre pokracovanie stlac enter");
+Console.ReadLine();
+Console.Clear();
 
 logoSchreen logo = new logoSchreen();
 
