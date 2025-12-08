@@ -12,25 +12,26 @@ namespace TriCore_OS.Grafika
 {
     internal class logoSchreen
     {
-        private string spaces = new string(' ', 20);
+        private int positionX = 50;
+        private int positionY = 25;
         private string logo = nameof(LoadingUI); 
       
 
         private void LogoUI()
         {
-            Console.SetCursorPosition(50, 5);
-            Console.WriteLine(" .----.  .----.  .----.   .----.  .----.  .----.");
-            Console.SetCursorPosition(50, 6);
+            CursorPositionLoadning();
+            Console.WriteLine(" .---------.   .---------.   .---------.     .---------.   .---------.   .---------.");
+            CursorPositionLoadning();
             Console.WriteLine("/  /\\  \\/  /\\  \\/  /\\  \\ /  /\\  \\/  /\\  \\/  /\\  \\");
-            Console.SetCursorPosition(50, 7);
+            CursorPositionLoadning();
             Console.WriteLine("/__/_/___\\_/__\\_/__/_/___\\_/__/_/___\\_/__\\_/__/_/__\\");
-            Console.SetCursorPosition(50, 8);
+            CursorPositionLoadning();
             Console.WriteLine("|  TRI  |  CORE  |   O S   |   v2.5   |  LOADING   |");
-            Console.SetCursorPosition(50, 9);
+            CursorPositionLoadning();
             Console.WriteLine("\\  \\/  /\\/  \\/  /\\/  \\/  /\\/  \\/  /\\/  \\/  /\\/  \\/  /");
-            Console.SetCursorPosition(50, 10);
+            CursorPositionLoadning();
             Console.WriteLine(" '----'  '----'  '----'   '----'  '----'  '----'");
-            Console.SetCursorPosition(50, 11);
+            CursorPositionLoadning();
             
 
         }
@@ -39,68 +40,68 @@ namespace TriCore_OS.Grafika
 
         private void LoadingUI()
         {
-            Console.SetCursorPosition(50, 14);
+            CursorPositionLoadning();
             LogoUI();
             Thread.Sleep(500);
             Console.WriteLine("[░░░░░░░░░░░░░░░░]   0%  ─⊙─  Starting boot sequence");
             Thread.Sleep(500);
             Console.Clear();
 
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [██░░░░░░░░░░░░░░]  10%  ─⊙─  Initializing I/O");
             Thread.Sleep(700);
             Console.Clear();
-            
-            Console.SetCursorPosition(50, 15);
+
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [████░░░░░░░░░░░░]  20%  ─⊙─  Loading core drivers");
             Thread.Sleep(400);
             Console.Clear();
-           
+
+            CursorPositionLoadning();
             LogoUI();
-            Console.SetCursorPosition(50, 11);
             Console.WriteLine(" [██████░░░░░░░░░░]  30%  ─⊙─  Detecting hardware");
             Thread.Sleep(400);
             Console.Clear();
-           
-            Console.SetCursorPosition(50, 15);
+
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [████████░░░░░░░░]  40%  ─⊙─  Mounting virtual FS");
             Thread.Sleep(400);
             Console.Clear();
-            
-            Console.SetCursorPosition(50, 15);
+
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [██████████░░░░░░]  50%  ─⊙─  Launching services");
             Thread.Sleep(700);
             Console.Clear();
            
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine("  [████████████░░░░]  60%  ─⊙─  Network stack online");
             Thread.Sleep(100);
             Console.Clear();
            
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [██████████████░░]  70%  ─⊙─  Security modules ready");
             Thread.Sleep(300);
             Console.Clear();
            
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [████████████████]  80%  ─⊙─  Optimizing system");
             Thread.Sleep(300);
             Console.Clear();
            
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.WriteLine(" [██████████████████░░]  90% ─⊙─  Preparing UI");
             Thread.Sleep(800);
             Console.Clear();
            
-            Console.SetCursorPosition(50, 15);
+            CursorPositionLoadning();
             LogoUI();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(" [████████████████████] 100% ─⊙─  TriCore ready!");
@@ -114,6 +115,9 @@ namespace TriCore_OS.Grafika
             LoadingUI();
         }
 
-        
+        private void CursorPositionLoadning()
+        {
+            Console.SetCursorPosition(positionX, positionY);
+        }
     }
 }
