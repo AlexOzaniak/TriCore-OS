@@ -6,6 +6,7 @@ using TriCore_OS.Grafika;
 Console.WriteLine("TriCore OS");
 
 
+
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
 
