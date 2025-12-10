@@ -21,6 +21,7 @@ namespace TriCore_OS.Grafika
         {
             Console.CursorVisible = false;
             LoadingUI();
+            
         }
 
         private void LogoUI()
@@ -53,60 +54,70 @@ namespace TriCore_OS.Grafika
             CursorPositionLoadning();
             Thread.Sleep(500);
             Console.Write("[░░░░░░░░░░░░░░░░]   0%  ─⊙─  Starting boot sequence");
+            MiniText();
             Thread.Sleep(500);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██░░░░░░░░░░░░░░]  10%  ─⊙─  Initializing I/O");
+            MiniText();
             Thread.Sleep(700);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████░░░░░░░░░░░░]  20%  ─⊙─  Loading core drivers");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████░░░░░░░░░░]  30%  ─⊙─  Detecting hardware");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████████░░░░░░░░]  40%  ─⊙─  Mounting virtual FS");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████░░░░░░]  50%  ─⊙─  Launching services");
+            MiniText();
             Thread.Sleep(700);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write("  [████████████░░░░]  60%  ─⊙─  Network stack online");
+            MiniText();
             Thread.Sleep(100);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████████░░]  70%  ─⊙─  Security modules ready");
+            MiniText();
             Thread.Sleep(300);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████████████████]  80%  ─⊙─  Optimizing system");
+            MiniText();
             Thread.Sleep(300);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████████████░░]  90% ─⊙─  Preparing UI");
+            MiniText();
             Thread.Sleep(800);
             Console.Clear();
            
@@ -114,6 +125,8 @@ namespace TriCore_OS.Grafika
             CursorPositionLoadning();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write(" [████████████████████] 100% ─⊙─  TriCore ready!");
+            Console.ForegroundColor = ConsoleColor.White;
+            MiniText();
             Thread.Sleep(2000);
             Console.ForegroundColor = ConsoleColor.White;
           
@@ -122,6 +135,13 @@ namespace TriCore_OS.Grafika
         private void CursorPositionLoadning()
         {
             Console.SetCursorPosition(positionX, positionY);
+        }
+
+
+        private void MiniText()
+        {
+            Console.SetCursorPosition(74, 45);
+            Console.WriteLine("TriCore OS Original");
         }
     }
 }
