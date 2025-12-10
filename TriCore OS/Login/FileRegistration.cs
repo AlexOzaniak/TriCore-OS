@@ -15,6 +15,8 @@ namespace TriCore_OS.Login
             Console.WriteLine("Enter your  username:");
             Username = Console.ReadLine();
             Console.WriteLine("Enter your  password:");
+           
+            Password = new string[] { Console.ReadLine() };
             Password = Console.ReadLine();
             SaveDetails();
             Console.WriteLine("Registration Successful!");
