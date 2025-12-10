@@ -8,8 +8,6 @@ Console.WriteLine("TriCore OS");
 //FileEngine fileengine = new FileEngine();
 //fileengine.EngineStart();
 
-//logoSchreen logo = new logoSchreen();
-//logo.StartUI();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
 
