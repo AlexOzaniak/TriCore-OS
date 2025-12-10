@@ -14,7 +14,7 @@ int maxWith = Console.LargestWindowWidth;
 Console.SetBufferSize(maxWith, maxHeight);
 
 Console.WriteLine("Pre pokracovanie stlac enter");
-Console.ReadLine();
+Console.ReadKey();
 Console.Clear();
 
 logoSchreen logo = new logoSchreen();

@@ -27,21 +27,21 @@ namespace TriCore_OS.Grafika
         private void LogoUI()
         {
             Console.SetCursorPosition(positionX2, 15);
-            Console.WriteLine("    .---------.   .---------.   .---------.     .---------.   .---------.   .---------.");
+            Console.WriteLine("    .---------.   .---------.   .---------.   .---------.   .---------.   .---------.");
             Console.SetCursorPosition(positionX2, 16);
-            Console.WriteLine("   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\");
+            Console.WriteLine("   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\");
             Console.SetCursorPosition(positionX2, 17);
-            Console.WriteLine("  /  /       \\  V  /       \\  V  /       \\  \\ /  /       \\  V  /       \\  V  /       \\  \\");
+            Console.WriteLine("  /  /       \\  V  /       \\  V  /       \\  V  /       \\  V  /       \\  V  /       \\  \\");
             Console.SetCursorPosition(positionX2, 18);
-            Console.WriteLine(" /__/_________\\___/_________\\___/_________\\__/__/_________\\___/_________\\___/_________\\__\\");
+            Console.WriteLine(" /__/_________\\___/_________\\___/_________\\___/_________\\___/_________\\___/_________\\__\\");
             Console.SetCursorPosition(positionX2, 19);
-            Console.WriteLine("|     T R I    |    C O R E   |     O S      |      v2.5      |     L O A D I N G        |");
+            Console.WriteLine("|     T R I     |   C O R E   |     O S     |    v2.5     |        L O A D I N G        |");
             Console.SetCursorPosition(positionX2, 20);
-            Console.WriteLine("\\   \\       / /\\   \\       /  /\\ \\       /  /\\   \\       /  /\\  \\       /  /\\  \\       /  /");
+            Console.WriteLine("\\   \\         //\\ \\         //\\ \\         //\\ \\         //\\ \\          //\\ \\         /  /");
             Console.SetCursorPosition(positionX2, 21);
-            Console.WriteLine(" \\   '-----' /  \\   '-----'  /  \\ '-----'  /  \\   '-----'  /  \\  '-----'  /  \\  '-----'  /");
+            Console.WriteLine(" \\    '-----' /  \\  '-----' /  \\  '-----' /  \\  '-----'   /  \\ '-----' /  \\  '-----'   /");
             Console.SetCursorPosition(positionX2, 22);
-            Console.WriteLine("  '---------'    '---------'     '---------'    '---------'    '---------'    '---------'");
+            Console.WriteLine("  '---------'    '---------'   '---------'     '---------'   '---------'    '---------'");
 
 
         }
@@ -140,7 +140,7 @@ namespace TriCore_OS.Grafika
 
         private void MiniText()
         {
-            Console.SetCursorPosition(74, 45);
+            Console.SetCursorPosition(71, 40);
             Console.WriteLine("TriCore OS Original");
         }
     }
