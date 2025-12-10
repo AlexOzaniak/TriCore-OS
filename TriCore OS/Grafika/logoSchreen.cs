@@ -13,10 +13,15 @@ namespace TriCore_OS.Grafika
     internal class logoSchreen
     {
         private int positionX = 55;
-        private int positionX2 = 35;            //dsdsdiwjdw
+        private int positionX2 = 35;         
         private int positionY = 25;
         private string logo = nameof(LoadingUI); 
       
+        public void StartUI()
+        {
+            Console.CursorVisible = false;
+            LoadingUI();
+        }
 
         private void LogoUI()
         {
@@ -112,11 +117,6 @@ namespace TriCore_OS.Grafika
             Thread.Sleep(2000);
             Console.ForegroundColor = ConsoleColor.White;
           
-        }
-        public void StartUI()
-        {
-            Console.CursorVisible = false;
-            LoadingUI();
         }
 
         private void CursorPositionLoadning()
