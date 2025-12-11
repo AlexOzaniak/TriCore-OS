@@ -37,14 +37,14 @@ namespace TriCore_OS.Login
             foreach (string line in File.ReadLines(login.FilePath))
             {
                 string[] parts = line.Split(';');
-                if (parts.Length == 2) // 
-                {
+                
+                
                     SavedUserName = parts[0]; 
-                    SavedPassword = parts[1]; 
+                    SavedPassword = parts[0]; 
 
                     Console.WriteLine($"Extracted Username: {SavedUserName}");
                     Console.WriteLine($"Extracted Password: {SavedPassword}");
-                }
+                
             }
         }
     }

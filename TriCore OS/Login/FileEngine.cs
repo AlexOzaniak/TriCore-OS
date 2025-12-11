@@ -14,15 +14,20 @@ public class FileEngine : FileLogin
         extraction.FilePath = FilePath;
         Console.Clear();
         extraction.ExtractLoginDetails(extraction);
-        Console.WriteLine("Hello User Please Insert Your Username");
+        Console.WriteLine("Hello User Please Insert Your Username\n If this is your first time using our program please Type 'register' in the following bracket");
+
         string InputUsername = Console.ReadLine();
+        if (InputUsername == "register")
+        {
+            registration.RegisterDetails();
+        }
         Console.WriteLine($"Hello {extraction.SavedUserName} Please Insert Your Password");
         string InputPassword = Console.ReadLine();
 
 
         if (InputUsername != extraction.SavedUserName)
         {
-            Console.WriteLine("wrong name");
+            Console.WriteLine(" Registration ");
             registration.RegisterDetails();
         }
         else if (InputPassword != extraction.SavedPassword)
