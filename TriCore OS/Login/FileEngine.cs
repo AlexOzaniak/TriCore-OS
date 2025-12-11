@@ -5,12 +5,13 @@ public class FileEngine : FileLogin
     public void EngineStart(LoginDetailsExtraction extraction)
     {
         FileRegistration registration = new FileRegistration();
+        Console.CursorVisible = true;
         
 
         Console.WriteLine("Before we start, enter path to your .txt file:");
-        Path = Console.ReadLine();
-        registration.Path = Path;
-        extraction.Path = Path;
+        FilePath = Console.ReadLine();
+        registration.FilePath = FilePath;
+        extraction.FilePath = FilePath;
         Console.Clear();
         extraction.ExtractLoginDetails(extraction);
         Console.WriteLine("Hello User Please Insert Your Username");

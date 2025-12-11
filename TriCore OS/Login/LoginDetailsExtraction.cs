@@ -14,9 +14,9 @@ namespace TriCore_OS.Login
         public void ExtractLoginDetails(FileLogin login)
         {
             // Ensure the registration instance uses the same Path as this extractor
-            login.Path = this.Path;
+            login.FilePath = this.FilePath;
 
-            if (File.Exists(Path) == false)
+            if (File.Exists(FilePath) == false)
             {
                 Console.WriteLine("No registration found. Please register first.");
                 registration.RegisterDetails();
@@ -24,7 +24,7 @@ namespace TriCore_OS.Login
             }
 
             // File exists - read lines
-            string[] lines = File.ReadAllLines(Path);
+            string[] lines = File.ReadAllLines(FilePath);
 
             
 
@@ -34,7 +34,7 @@ namespace TriCore_OS.Login
 
         public void ExtractInfo(FileLogin login)
         {
-            foreach (string line in File.ReadLines(login.Path))
+            foreach (string line in File.ReadLines(login.FilePath))
             {
                 string[] parts = line.Split(';');
                 if (parts.Length == 2) // 

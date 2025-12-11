@@ -123,5 +123,6 @@ namespace TriCore_OS.Grafika
         {
             Console.SetCursorPosition(positionX, positionY);
         }
+
     }
 }
