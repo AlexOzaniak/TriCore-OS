@@ -23,7 +23,6 @@ loginScreenUI ui = new loginScreenUI();
 logo.StartUI();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
-
 Console.SetBufferSize(maxWith, maxHeight);
 
 
@@ -33,9 +32,10 @@ Console.Clear();
 
 engine.EngineStart(login);
 
+engine.EngineStart(login);
 logo.StartUI();
-Console.ReadKey();
 
+Console.WriteLine("Pre pokracovanie stlac enter");
 Console.ReadKey();
 Console.Clear();
 */
