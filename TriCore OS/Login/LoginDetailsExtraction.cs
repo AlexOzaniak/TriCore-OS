@@ -1,57 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System;
 using System.IO;
+
 namespace TriCore_OS.Login
 {
-
-
-    namespace TriCore_OS.Login
+    public class LoginDetailsExtraction : FileLogin
     {
-        internal class LoginDetailsExtraction : FileLogin
+        // Fields to store the extracted login details
+        public string SavedUserName { get; private set; }
+        public string SavedPassword { get; private set; }
+
+        FileRegistration registration = new FileRegistration();
+
+        public void ExtractLoginDetails(FileLogin login)
         {
-            FileRegistration registration = new FileRegistration();
+            // Ensure the registration instance uses the same Path as this extractor
+            login.Path = this.Path;
 
-            public string[] ExtractName()
+            if (File.Exists(Path) == false)
             {
-                if (!File.Exists(Path))
-                {
-                    registration.RegisterDetails();
-                }
-
-                string[] details = File.ReadAllLines(Path);
-
-                if (details.Length == 0)
-                {
-                    registration.RegisterDetails();
-                    details = File.ReadAllLines(Path);
-                }
-
-                Username = new[] { details[0] };
-                return Username;
+                Console.WriteLine("No registration found. Please register first.");
+                registration.RegisterDetails();
+                return;
             }
 
-            public string[] ExtractPassword()
+            // File exists - read lines
+            string[] lines = File.ReadAllLines(Path);
+
+            
+
+            // Call ExtractInfo to parse login details from file
+            ExtractInfo(login);
+        }
+
+        public void ExtractInfo(FileLogin login)
+        {
+            foreach (string line in File.ReadLines(login.Path))
             {
-                if (!File.Exists(Path))
+                string[] parts = line.Split(';');
+                if (parts.Length == 2) // 
                 {
-                    registration.RegisterDetails();
+                    SavedUserName = parts[0]; 
+                    SavedPassword = parts[1]; 
+
+                    Console.WriteLine($"Extracted Username: {SavedUserName}");
+                    Console.WriteLine($"Extracted Password: {SavedPassword}");
                 }
-
-
-                string[] details = File.ReadAllLines(Path);
-                if (details.Length == 0)
-                {
-                    registration.RegisterDetails();
-                    details = File.ReadAllLines(Path);
-                }
-
-
-                Password = new[] { details[1] };
-                return Password;
             }
         }
     }
