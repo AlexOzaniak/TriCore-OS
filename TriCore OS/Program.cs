@@ -2,7 +2,10 @@
 using TriCore_OS.Login;
 using TriCore_OS.Grafika;
 
+
 Console.WriteLine("TriCore OS");
+
+
 
 
 
@@ -23,6 +26,13 @@ int maxWith = Console.LargestWindowWidth;
 Console.SetBufferSize(maxWith, maxHeight);
 
 Console.WriteLine("Pre pokracovanie stlac enter");
+Console.ReadLine();
+Console.Clear();
+
+logoSchreen logo = new logoSchreen();
+
+logo.StartUI();
+Console.ReadKey();
 
 Console.ReadKey();
 Console.Clear();
