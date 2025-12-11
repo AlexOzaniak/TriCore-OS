@@ -19,7 +19,7 @@ loginScreenUI ui = new loginScreenUI();
 
 
 
-/*logoSchreen logo = new logoSchreen();
+logoSchreen logo = new logoSchreen();
 logo.StartUI();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
@@ -38,7 +38,6 @@ Console.ReadKey();
 
 Console.ReadKey();
 Console.Clear();
-*/
 
 
 

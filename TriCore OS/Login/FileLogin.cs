@@ -18,7 +18,7 @@ namespace TriCore_OS.Login
 
         public void SaveDetails()
         {
-            using (StreamWriter file = new StreamWriter(FilePath, true))
+            using (StreamWriter file = new StreamWriter(FilePath, false))
             {
                 file.WriteLine($"{Username};{Password}");
             }
