@@ -13,29 +13,35 @@ namespace TriCore_OS.Grafika
     internal class logoSchreen
     {
         private int positionX = 55;
-        private int positionX2 = 35;            //dsdsdiwjdw
+        private int positionX2 = 35;         
         private int positionY = 25;
         private string logo = nameof(LoadingUI); 
       
+        public void StartUI()
+        {
+            Console.CursorVisible = false;
+            LoadingUI();
+            
+        }
 
         private void LogoUI()
         {
             Console.SetCursorPosition(positionX2, 15);
-            Console.WriteLine("    .---------.   .---------.   .---------.     .---------.   .---------.   .---------.");
+            Console.WriteLine("    .---------.   .---------.   .---------.   .---------.   .---------.   .---------.");
             Console.SetCursorPosition(positionX2, 16);
-            Console.WriteLine("   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\");
+            Console.WriteLine("   /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\ /  .-----.  \\");
             Console.SetCursorPosition(positionX2, 17);
-            Console.WriteLine("  /  /       \\  V  /       \\  V  /       \\  \\ /  /       \\  V  /       \\  V  /       \\  \\");
+            Console.WriteLine("  /  /       \\  V  /       \\  V  /       \\  V  /       \\  V  /       \\  V  /       \\  \\");
             Console.SetCursorPosition(positionX2, 18);
-            Console.WriteLine(" /__/_________\\___/_________\\___/_________\\__/__/_________\\___/_________\\___/_________\\__\\");
+            Console.WriteLine(" /__/_________\\___/_________\\___/_________\\___/_________\\___/_________\\___/_________\\__\\");
             Console.SetCursorPosition(positionX2, 19);
-            Console.WriteLine("|     T R I    |    C O R E   |     O S      |      v2.5      |     L O A D I N G        |");
+            Console.WriteLine("|     T R I     |   C O R E   |     O S     |    v2.5     |        L O A D I N G        |");
             Console.SetCursorPosition(positionX2, 20);
-            Console.WriteLine("\\   \\       / /\\   \\       /  /\\ \\       /  /\\   \\       /  /\\  \\       /  /\\  \\       /  /");
+            Console.WriteLine("\\   \\         //\\ \\         //\\ \\         //\\ \\         //\\ \\          //\\ \\         /  /");
             Console.SetCursorPosition(positionX2, 21);
-            Console.WriteLine(" \\   '-----' /  \\   '-----'  /  \\ '-----'  /  \\   '-----'  /  \\  '-----'  /  \\  '-----'  /");
+            Console.WriteLine(" \\    '-----' /  \\  '-----' /  \\  '-----' /  \\  '-----'   /  \\ '-----' /  \\  '-----'   /");
             Console.SetCursorPosition(positionX2, 22);
-            Console.WriteLine("  '---------'    '---------'     '---------'    '---------'    '---------'    '---------'");
+            Console.WriteLine("  '---------'    '---------'   '---------'     '---------'   '---------'    '---------'");
 
 
         }
@@ -48,60 +54,70 @@ namespace TriCore_OS.Grafika
             CursorPositionLoadning();
             Thread.Sleep(500);
             Console.Write("[░░░░░░░░░░░░░░░░]   0%  ─⊙─  Starting boot sequence");
+            MiniText();
             Thread.Sleep(500);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██░░░░░░░░░░░░░░]  10%  ─⊙─  Initializing I/O");
+            MiniText();
             Thread.Sleep(700);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████░░░░░░░░░░░░]  20%  ─⊙─  Loading core drivers");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████░░░░░░░░░░]  30%  ─⊙─  Detecting hardware");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████████░░░░░░░░]  40%  ─⊙─  Mounting virtual FS");
+            MiniText();
             Thread.Sleep(400);
             Console.Clear();
 
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████░░░░░░]  50%  ─⊙─  Launching services");
+            MiniText();
             Thread.Sleep(700);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write("  [████████████░░░░]  60%  ─⊙─  Network stack online");
+            MiniText();
             Thread.Sleep(100);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████████░░]  70%  ─⊙─  Security modules ready");
+            MiniText();
             Thread.Sleep(300);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [████████████████]  80%  ─⊙─  Optimizing system");
+            MiniText();
             Thread.Sleep(300);
             Console.Clear();
            
             LogoUI();
             CursorPositionLoadning();
             Console.Write(" [██████████████████░░]  90% ─⊙─  Preparing UI");
+            MiniText();
             Thread.Sleep(800);
             Console.Clear();
            
@@ -109,19 +125,23 @@ namespace TriCore_OS.Grafika
             CursorPositionLoadning();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write(" [████████████████████] 100% ─⊙─  TriCore ready!");
+            Console.ForegroundColor = ConsoleColor.White;
+            MiniText();
             Thread.Sleep(2000);
             Console.ForegroundColor = ConsoleColor.White;
           
-        }
-        public void StartUI()
-        {
-            Console.CursorVisible = false;
-            LoadingUI();
         }
 
         private void CursorPositionLoadning()
         {
             Console.SetCursorPosition(positionX, positionY);
+        }
+
+
+        private void MiniText()
+        {
+            Console.SetCursorPosition(71, 40);
+            Console.WriteLine("TriCore OS Original");
         }
     }
 }
