@@ -137,11 +137,5 @@ namespace TriCore_OS.Grafika
             Console.SetCursorPosition(positionX, positionY);
         }
 
-
-        private void MiniText()
-        {
-            Console.SetCursorPosition(71, 40);
-            Console.WriteLine("TriCore OS Original");
-        }
     }
 }
