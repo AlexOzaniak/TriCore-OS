@@ -7,10 +7,6 @@ Console.WriteLine("TriCore OS");
 
 
 
-
-
-
-
 FileEngine fileengine = new FileEngine();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
