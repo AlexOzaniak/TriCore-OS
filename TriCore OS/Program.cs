@@ -5,8 +5,7 @@ using TriCore_OS.Grafika;
 
 Console.WriteLine("TriCore OS");
 
-//FileEngine fileengine = new FileEngine();
-//fileengine.EngineStart();
+
 
 
 
