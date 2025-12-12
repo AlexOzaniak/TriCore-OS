@@ -57,9 +57,6 @@ namespace TriCore_OS.Grafika
             }
         }
 
-        private void TextLogin()
-        {
-
-        }
+      
     }
 }

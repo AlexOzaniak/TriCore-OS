@@ -8,29 +8,7 @@ namespace TriCore_OS.Grafika
 {
     internal class TextCentering
     {
-        public  void CenterText(string text, int yPosition)
-        {
-            if (text.Length < Console.WindowWidth && yPosition >= 0 && yPosition < Console.WindowHeight)
-            {
-                int widthConsole = Console.WindowWidth;
-                int xStart = (widthConsole / 2) - (text.Length / 2);
-
-                if (xStart < 0)
-                {
-                    xStart = 0;
-                }
-
-                try
-                {
-                    Console.SetCursorPosition(xStart, yPosition);
-                    Console.Write(text);
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    
-                }
-            }
-        }
+        
 
         public void CenterText(string[] lines, int centerY)
         {
@@ -59,7 +37,7 @@ namespace TriCore_OS.Grafika
                 }
                 catch (ArgumentOutOfRangeException)
                 {
-                    // ignore lines that don't fit
+                    
                 }
             }
         }
