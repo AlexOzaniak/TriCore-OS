@@ -9,76 +9,57 @@ namespace TriCore_OS.Grafika
 {
     internal class loginScreenUI
     {
-   
-        private void LoginUi()
+        public string[] BuildLoginScreen()
         {
-            Console.WriteLine("██████████████████████████████████████████████████████████████████████████████████████████████████████");
-            Console.SetCursorPosition(0,0);         //este zmenit podla velkosti
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                       ████████╗██████╗ ██╗   ██████╗ ██████╗ ██████╗ ███████╗                      █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                       ╚══██╔══╝██╔══██╗██║  ██╔════╝██╔═══██╗██╔══██╗██╔════╝                      █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                          ██║   ██████╔╝██║  ██║     ██║   ██║██████╔╝█████╗                        █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                          ██║   ██╔══██╗██║  ██║     ██║   ██║██╔══██╗██╔══╝                        █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                          ██║   ██║  ██║██║  ╚██████╗╚██████╔╝██║  ██║███████╗                      █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                          ╚═╝   ╚═╝  ╚═╝╚═╝   ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝                      █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                       T  R  I  C  O  R  E     O P E R A T I N G     S Y S T E M                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("██████████████████████████████████████████████████████████████████████████████████████████████████████");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█     ┌────────────────────────────────────────────────────────────────────────────────────────────┐ █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█     │                                                                                            │ █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█     │                                   U S E R   L O G I N                                      │ █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█     │                                                                                            │ █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█     └────────────────────────────────────────────────────────────────────────────────────────────┘ █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█              Username:        _________________________________________________________________    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█              Password:        _________________________________________________________________    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█        ┌─────────────────────────────┐       ┌─────────────────────────────┐                       █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█        │            LOGIN            │       │           SHUTDOWN          │                       █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█        └─────────────────────────────┘       └─────────────────────────────┘                       █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("█                                                                                                    █");
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("██████████████████████████████████████████████████████████████████████████████████████████████████████");
+            return new string[]
+            {
+                "██████████████████████████████████████████████████████████████████████████████████████████████████████",
+                "█                                                                                                    █",
+                "█                       ████████╗██████╗ ██╗   ██████╗ ██████╗ ██████╗ ███████╗                      █",
+                "█                       ╚══██╔══╝██╔══██╗██║  ██╔════╝██╔═══██╗██╔══██╗██╔════╝                      █",
+                "█                          ██║   ██████╔╝██║  ██║     ██║   ██║██████╔╝█████╗                        █",
+                "█                          ██║   ██╔══██╗██║  ██║     ██║   ██║██╔══██╗██╔══╝                        █",
+                "█                          ██║   ██║  ██║██║  ╚██████╗╚██████╔╝██║  ██║███████╗                      █",
+                "█                          ╚═╝   ╚═╝  ╚═╝╚═╝   ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝                      █",
+                "█                                                                                                    █",
+                "█                       T  R  I  C  O  R  E     O P E R A T I N G     S Y S T E M                    █",
+                "█                                                                                                    █",
+                "██████████████████████████████████████████████████████████████████████████████████████████████████████",
+                "█                                                                                                    █",
+                "█     ┌────────────────────────────────────────────────────────────────────────────────────────────┐ █",
+                "█     │                                                                                            │ █",
+                "█     │                                   U S E R   L O G I N                                      │ █",
+                "█     │                                                                                            │ █",
+                "█     └────────────────────────────────────────────────────────────────────────────────────────────┘ █",
+                "█                                                                                                    █",
+                "█                                                                                                    █",
+                "█              Username:        _________________________________________________________________    █",
+                "█                                                                                                    █",
+                "█              Password:        _________________________________________________________________    █",
+                "█                                                                                                    █",
+                "█                                                                                                    █",
+                "█                                                                                                    █",
+                "█        ┌─────────────────────────────┐       ┌─────────────────────────────┐                       █",
+                "█        │            LOGIN            │       │           SHUTDOWN          │                       █",
+                "█        └─────────────────────────────┘       └─────────────────────────────┘                       █",
+                "█                                                                                                    █",
+                "██████████████████████████████████████████████████████████████████████████████████████████████████████",
+            };
         }
 
         public void LoginScreenUIDo()
         {
             Console.Clear();
+            var lines = BuildLoginScreen();
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+            }
         }
 
+        private void TextLogin()
+        {
+
+        }
     }
 }
