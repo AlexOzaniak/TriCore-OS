@@ -17,9 +17,10 @@ namespace TriCore_OS.Login
             login.FilePath = this.FilePath;
 
             if (File.Exists(FilePath) == false)
+                
             {
-                Console.WriteLine("No registration found. Please register first.");
-                registration.RegisterDetails();
+                File.Create(FilePath).Close();
+                Console.WriteLine("Súbor bol vytvorený: " + FilePath);
                 return;
             }
 

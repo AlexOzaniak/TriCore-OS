@@ -13,12 +13,11 @@ namespace TriCore_OS.Login
         protected string Username { get; set; }
         protected string Password { get; set; }
         public string FilePath { get; set; }
-
        
 
         public void SaveDetails()
         {
-            using (StreamWriter file = new StreamWriter(FilePath, false))
+            using (StreamWriter file = new StreamWriter(FilePath, true ))
             {
                 file.WriteLine($"{Username};{Password}");
             }

@@ -6,10 +6,19 @@ public class FileEngine : FileLogin
     {
         FileRegistration registration = new FileRegistration();
         Console.CursorVisible = true;
-        
 
-        Console.WriteLine("Before we start, enter path to your .txt file:");
-        FilePath = Console.ReadLine();
+        string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
+       
+
+       
+
+
+
+
+
+
+
         registration.FilePath = FilePath;
         extraction.FilePath = FilePath;
         Console.Clear();
@@ -34,7 +43,7 @@ public class FileEngine : FileLogin
         {
             Console.WriteLine("Access Granted");
         }
-        SaveDetails();
+        
 
 
 

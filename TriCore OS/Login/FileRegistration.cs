@@ -23,6 +23,7 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
             Console.WriteLine("Enter your  username:");
            
             Username = Console.ReadLine();
+            
             if (Username == null)
             {
                 Console.WriteLine("Username Can not Be Empty");

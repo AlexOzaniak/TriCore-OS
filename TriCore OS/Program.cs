@@ -18,13 +18,18 @@ LoginDetailsExtraction login = new LoginDetailsExtraction();
 loginScreenUI ui = new loginScreenUI();
 
 
-
+/*
 logoSchreen logo = new logoSchreen();
 logo.StartUI();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
 
 Console.SetBufferSize(maxWith, maxHeight);
+logo.StartUI();
+Console.ReadKey();
+
+Console.ReadKey();
+Console.Clear();*/
 
 
 Console.WriteLine("Pre pokracovanie stlac enter");
@@ -33,11 +38,8 @@ Console.Clear();
 
 engine.EngineStart(login);
 
-logo.StartUI();
-Console.ReadKey();
 
-Console.ReadKey();
-Console.Clear();
+
 
 
 
