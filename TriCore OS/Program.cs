@@ -23,7 +23,6 @@ logoSchreen logo = new logoSchreen();
 logo.StartUI();
 int maxHeight = Console.LargestWindowHeight;
 int maxWith = Console.LargestWindowWidth;
-
 Console.SetBufferSize(maxWith, maxHeight);
 logo.StartUI();
 Console.ReadKey();
@@ -38,8 +37,13 @@ Console.Clear();
 
 engine.EngineStart(login);
 
+engine.EngineStart(login);
+logo.StartUI();
 
-
+Console.WriteLine("Pre pokracovanie stlac enter");
+Console.ReadKey();
+Console.Clear();
+*/
 
 
 
