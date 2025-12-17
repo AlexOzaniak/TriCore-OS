@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TriCore_OS.Grafika;
+using TriCore_OS.Login;
 
 namespace TriCore_OS
 {
@@ -11,28 +12,19 @@ namespace TriCore_OS
     {
         public void Engine()
         {
-
-            Console.WriteLine("TriCore OS");
+            Console.WriteLine("Tri core");
             Console.ReadLine();
-            Console.Clear();
+
+            logoScreen logoScreen = new logoScreen();
+            FileEngine fileEngine = new FileEngine();
+            LoginDetailsExtraction extraction = new LoginDetailsExtraction();
+            fileEngine.EngineStart(extraction);
 
 
+           logoScreen.StartUI();
+           Thread.Sleep(2000);
 
-            logoSchreen logo = new logoSchreen();
-            logo.StartUI();
-            Console.Clear();
-            TextCentering textCenter = new TextCentering();
-            loginScreenUI loginUI = new loginScreenUI();
 
-            var loginLines = loginUI.BuildLoginScreen();
-            textCenter.CenterText(loginLines, Console.WindowHeight / 2);
-
-            Console.ReadKey();
-            Console.Clear();
-
-            MainGraphics homeUI = new MainGraphics();
-            homeUI.mainGraphics();
-            Console.ReadKey();
         }
     }
 }
