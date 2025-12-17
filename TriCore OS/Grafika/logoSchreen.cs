@@ -110,7 +110,7 @@
             LogoUI();
             CursorPositionLoadning();
             Console.Write("  [████████████░░░░]  60%  ─⊙─  Network stack online");
-
+            MiniText();
             Thread.Sleep(100);
             Console.Clear();
 
