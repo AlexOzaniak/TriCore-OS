@@ -6,28 +6,32 @@ public class FileEngine : FileLogin
     {
         FileRegistration registration = new FileRegistration();
         Console.CursorVisible = true;
-        
 
-        Console.WriteLine("Before we start, enter path to your .txt file:");
-        FilePath = Console.ReadLine();
+        string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
+       
+
+       
+
+
+
+
+
+
+
         registration.FilePath = FilePath;
         extraction.FilePath = FilePath;
         Console.Clear();
         extraction.ExtractLoginDetails(extraction);
-        Console.WriteLine("Hello User Please Insert Your Username\n If this is your first time using our program please Type 'register' in the following bracket");
-
+        Console.WriteLine("Hello User Please Insert Your Username");
         string InputUsername = Console.ReadLine();
-        if (InputUsername == "register")
-        {
-            registration.RegisterDetails();
-        }
         Console.WriteLine($"Hello {extraction.SavedUserName} Please Insert Your Password");
         string InputPassword = Console.ReadLine();
 
 
         if (InputUsername != extraction.SavedUserName)
         {
-            Console.WriteLine(" Registration ");
+            Console.WriteLine("wrong name");
             registration.RegisterDetails();
         }
         else if (InputPassword != extraction.SavedPassword)
@@ -39,7 +43,7 @@ public class FileEngine : FileLogin
         {
             Console.WriteLine("Access Granted");
         }
-        SaveDetails();
+        
 
 
 
