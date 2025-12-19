@@ -1,16 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TriCore_OS.Login
 {
 
-    internal class FileRegistration : FileLogin
+    public class FileRegistration : FileLogin
     {
-        public void RegisterDetails()
+        public string GetRegisterPassword()
         {
+            Console.WriteLine("Enter your  password:");
+
+            Password = Console.ReadLine();
+
+            if (Password == null)
+            {
+                Console.WriteLine("Password Can not Be Empty");
+            }
+            
+          
+                return Password;
+            
+
+        }
+       
+
+        public void RegisterDetails(string EncryptedPassword )
+        {
+            FileEngine rngine = new FileEngine();
+            PaswordEncrypting encrypting = new PaswordEncrypting();
+            
             Console.WriteLine(@"
 ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _ 
 | ___ \  ___|  __ \_   _/  ___|_   _| ___ \/ _ \_   _|_   _|  _  | \ | |
@@ -20,26 +42,33 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
 \_| \_\____/ \____/\___/\____/  \_/ \_| \_\_| |_/\_/  \___/ \___/\_| \_/
                                                                         
                                                                         ");
-            Console.WriteLine("Enter your  username:");
            
+            Console.WriteLine("Enter your  username:");
+
             Username = Console.ReadLine();
             
             if (Username == null)
             {
                 Console.WriteLine("Username Can not Be Empty");
             }
+          
 
-            Console.WriteLine("Enter your  password:");
+             EncryptedPassword = encrypting.Encryption();
+            
 
-            Password = Console.ReadLine();
-            if (Password == null)
-            {
-                Console.WriteLine("Password Can not Be Empty");
-            }
+
+
             
             SaveDetails();
             Console.WriteLine("Registration Successful!");
+            
+            
+
+
+
         }
+       
+
     }
 
 
