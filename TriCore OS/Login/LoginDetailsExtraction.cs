@@ -17,9 +17,10 @@ namespace TriCore_OS.Login
             login.FilePath = this.FilePath;
 
             if (File.Exists(FilePath) == false)
+                
             {
-                Console.WriteLine("No registration found. Please register first.");
-                registration.RegisterDetails();
+                File.Create(FilePath).Close();
+                Console.WriteLine("Súbor bol vytvorený: " + FilePath);
                 return;
             }
 
@@ -37,14 +38,14 @@ namespace TriCore_OS.Login
             foreach (string line in File.ReadLines(login.FilePath))
             {
                 string[] parts = line.Split(';');
-                
-                
+                if (parts.Length == 2) // 
+                {
                     SavedUserName = parts[0]; 
-                    SavedPassword = parts[0]; 
+                    SavedPassword = parts[1]; 
 
                     Console.WriteLine($"Extracted Username: {SavedUserName}");
                     Console.WriteLine($"Extracted Password: {SavedPassword}");
-                
+                }
             }
         }
     }
