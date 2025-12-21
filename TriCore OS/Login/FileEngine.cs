@@ -2,30 +2,23 @@
 
 public class FileEngine : FileLogin
 {
-    public void EngineStart(LoginDetailsExtraction extraction)
+     FileRegistration registration = new FileRegistration();
+    public void FileStart(LoginDetailsExtraction extraction)
     {
-        FileRegistration registration = new FileRegistration();
         Console.CursorVisible = true;
 
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
-       
-
-       
-
-
-
-
-
-
-
         registration.FilePath = FilePath;
+    }
+
+    public void FileLoginProcess(LoginDetailsExtraction extraction)
+    {
+
         extraction.FilePath = FilePath;
-        Console.Clear();
         extraction.ExtractLoginDetails(extraction);
-        Console.WriteLine("Hello User Please Insert Your Username");
+        
         string InputUsername = Console.ReadLine();
-        Console.WriteLine($"Hello {extraction.SavedUserName} Please Insert Your Password");
         string InputPassword = Console.ReadLine();
 
 
@@ -43,11 +36,5 @@ public class FileEngine : FileLogin
         {
             Console.WriteLine("Access Granted");
         }
-        
-
-
-
-
-
     }
 }
