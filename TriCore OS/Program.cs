@@ -1,5 +1,4 @@
-﻿using TriCore_OS.Login;
+﻿using TriCore_OS;
 
-FileEngine engine = new FileEngine();
-LoginDetailsExtraction extraction = new LoginDetailsExtraction();
-engine.EngineStart(extraction);
+Main_Engine engine = new Main_Engine();
+engine.Engine();
