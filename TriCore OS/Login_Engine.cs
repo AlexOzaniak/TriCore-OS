@@ -12,6 +12,7 @@ namespace TriCore_OS
     {
         FileEngine fileEngine = new FileEngine();
         loginScreenUI loginUI = new loginScreenUI();
+        LoadingGraphics loadingGraphics = new LoadingGraphics();
         public void StartLoginProcess()
         {
             Console.Clear();
@@ -23,7 +24,8 @@ namespace TriCore_OS
             Console.CursorVisible = true;
             CenteringCursor();
             fileEngine.FileLoginProcess(new LoginDetailsExtraction());
-            
+            Thread.Sleep(1000);
+            loadingGraphics.LoadingScreenUI();
         }
 
         private void CenteringCursor()
