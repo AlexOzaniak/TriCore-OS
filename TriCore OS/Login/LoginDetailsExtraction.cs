@@ -43,8 +43,8 @@ namespace TriCore_OS.Login
                     SavedUserName = parts[0]; 
                     SavedPassword = parts[1]; 
 
-                    Console.WriteLine($"Extracted Username: {SavedUserName}");
-                    Console.WriteLine($"Extracted Password: {SavedPassword}");
+                    //Console.WriteLine($"Extracted Username: {SavedUserName}");
+                    //Console.WriteLine($"Extracted Password: {SavedPassword}");
                 }
             }
         }

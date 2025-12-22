@@ -1,4 +1,5 @@
-﻿using TriCore_OS.Login;
+﻿using TriCore_OS;
+using TriCore_OS.Login;
 
 public class FileEngine : FileLogin
 {
@@ -14,11 +15,13 @@ public class FileEngine : FileLogin
 
     public void FileLoginProcess(LoginDetailsExtraction extraction)
     {
+        Login_Engine engine = new Login_Engine();
 
         extraction.FilePath = FilePath;
         extraction.ExtractLoginDetails(extraction);
         
         string InputUsername = Console.ReadLine();
+        engine.CenteringCursorPassword();
         string InputPassword = Console.ReadLine();
 
 

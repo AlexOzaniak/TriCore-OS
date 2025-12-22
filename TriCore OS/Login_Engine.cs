@@ -20,8 +20,27 @@ namespace TriCore_OS
         public void LoginProcess()
         {
             loginUI.LoginScreenUIDo();
+            Console.CursorVisible = true;
+            CenteringCursor();
             fileEngine.FileLoginProcess(new LoginDetailsExtraction());
             
+        }
+
+        private void CenteringCursor()
+        {
+            int centerX = Console.WindowWidth / 2;
+            int centerY = Console.WindowHeight / 2;
+            int y = centerY + 3;
+            int x = Math.Max(0, centerX - 17);
+            Console.SetCursorPosition(x, y);
+        }
+        public void CenteringCursorPassword()
+        {
+            int centerX = Console.WindowWidth / 2;
+            int centerY = Console.WindowHeight / 2;
+            int y = centerY + 5;
+            int x = Math.Max(0, centerX - 17);
+            Console.SetCursorPosition(x, y);
         }
     }
 }
