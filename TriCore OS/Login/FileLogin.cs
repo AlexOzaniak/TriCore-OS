@@ -8,24 +8,27 @@ using System.Threading.Tasks;
 
 namespace TriCore_OS.Login
 {
+
     
+
     public class FileLogin
     {
        
+
         protected string Username { get; set; }
         protected string Password { get; set; }
         public string FilePath { get; set; }
        
 
-        public void SaveDetails( )
+        public void SaveDetails(PaswordEncrypting encrypting)
         {
+           FileRegistration registration = new FileRegistration();
 
-        FileRegistration registration = new FileRegistration();
-            
+
             using (StreamWriter file = new StreamWriter(FilePath, true ))
             {
                 
-                file.WriteLine($"{Username};{registration.ReturnEncryptedPass()}");
+                file.WriteLine($"{Username};{registration.EncryptedPass(encrypting)}");
             }
 
 

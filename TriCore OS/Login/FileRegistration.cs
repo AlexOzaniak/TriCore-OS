@@ -8,8 +8,12 @@ using System.Threading.Tasks;
 namespace TriCore_OS.Login
 {
 
+
     public class FileRegistration : FileLogin
     {
+
+
+
         public string GetRegisterPassword()
         {
             Console.WriteLine("Enter your  password:");
@@ -20,19 +24,25 @@ namespace TriCore_OS.Login
             {
                 Console.WriteLine("Password Can not Be Empty");
             }
-            
-          
-                return Password;
-            
+
+
+            return Password;
+
 
         }
-       
 
-        public void RegisterDetails(string EncryptedPassword )
+
+
+
+
+
+
+
+        public void RegisterDetails()
         {
             FileEngine rngine = new FileEngine();
-            PaswordEncrypting encrypting = new PaswordEncrypting();
-            
+
+
             Console.WriteLine(@"
 ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _ 
 | ___ \  ___|  __ \_   _/  ___|_   _| ___ \/ _ \_   _|_   _|  _  | \ | |
@@ -42,32 +52,39 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
 \_| \_\____/ \____/\___/\____/  \_/ \_| \_\_| |_/\_/  \___/ \___/\_| \_/
                                                                         
                                                                         ");
-           
+
             Console.WriteLine("Enter your  username:");
 
             Username = Console.ReadLine();
-            
+
             if (Username == null)
             {
                 Console.WriteLine("Username Can not Be Empty");
             }
-          
-
-             EncryptedPassword = encrypting.Encryption();
-            
+            PaswordEncrypting encrypting = new PaswordEncrypting();
 
 
 
-            
-            SaveDetails();
+
+
+
+
+
+
+            SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");
-            
-            
+
+
 
 
 
         }
-       
+        public string EncryptedPass(PaswordEncrypting encrypting)
+        {
+            string EncrypptedPassword = encrypting.Encryption();
+            return EncrypptedPassword;
+        }
+
 
     }
 
