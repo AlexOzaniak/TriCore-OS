@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;
 using TriCore_OS.Spustanie_Programov;

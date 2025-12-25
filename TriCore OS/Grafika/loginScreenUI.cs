@@ -9,9 +9,9 @@ namespace TriCore_OS.Grafika
 {
     internal class loginScreenUI
     {
-        public string[] BuildLoginScreen()
+        private void BuildLoginScreen()
         {
-            return new string[]
+            string[] loginDo =  new string[]
             {
                 "██████████████████████████████████████████████████████████████████████████████████████████████████████",
                 "█                                                                                                    █",
@@ -45,16 +45,34 @@ namespace TriCore_OS.Grafika
                 "█                                                                                                    █",
                 "██████████████████████████████████████████████████████████████████████████████████████████████████████",
             };
+
+            int startY = (Console.WindowHeight / 2) - (loginDo.Length / 2) - 2;
+            int widthConsole = Console.WindowWidth;
+
+            for (int i = 0; i < loginDo.Length; i++)
+            {
+                string line = loginDo[i];
+                int xStart = (widthConsole / 2) - (line.Length / 2);
+                if (xStart < 0) xStart = 0;
+                int y = startY + i;
+                if (y < 0) y = 0;
+                try
+                {
+                    Console.SetCursorPosition(xStart, y);
+                    Console.WriteLine(line);
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                    Console.WriteLine("Error!!");
+                }
+            }
         }
 
         public void LoginScreenUIDo()
         {
             Console.Clear();
-            var lines = BuildLoginScreen();
-            foreach (var line in lines)
-            {
-                Console.WriteLine(line);
-            }
+            BuildLoginScreen();
+
         }
 
       
