@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -73,6 +74,7 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
 
             SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");
+            Process.Start(Environment.ProcessPath!);
 
 
 
