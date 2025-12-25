@@ -49,8 +49,7 @@ namespace TriCore_OS.Login
                 
                 SavedPassword = CaesarDecrypt(parts[1]);
 
-                Console.WriteLine($"Extracted Username: {SavedUserName}");
-                Console.WriteLine($"Decrypted Password: {SavedPassword}");
+              
             }
 
         }

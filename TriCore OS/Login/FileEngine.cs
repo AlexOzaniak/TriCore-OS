@@ -47,9 +47,19 @@ public class FileEngine : FileLogin
         }
         else
         {
-            Console.WriteLine("Access Granted");
-            Process.Start("Spotify");
-            Console.WriteLine("Welcome to our system ");
+            Console.Clear();
+            Console.WriteLine("Logging In");
+            
+            for ( int i = 0; i < 10; i++ )
+            {
+                
+                Console.Write(">");
+                Thread.Sleep(400);
+                
+            }
+            Console.WriteLine();
+            
+            Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
 
         }
 
