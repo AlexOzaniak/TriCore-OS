@@ -54,7 +54,7 @@ namespace TriCore_OS.Login
 
         }
         public string CaesarDecrypt(string input, int shift = 3)
-        {
+        { // niektore z tohto je gpt lebo sm absolutne nechapal ako mam urobit to sifru
             char[] buffer = input.ToCharArray();
 
             for (int i = 0; i < buffer.Length; i++)
