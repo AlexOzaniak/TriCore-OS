@@ -13,6 +13,7 @@ namespace TriCore_OS.Grafika
         public void LoadingScreenUI()
         {
             Console.CursorVisible = false;
+            Console.Clear();
             LoadingBall();
         }
         private void LoadingUI()

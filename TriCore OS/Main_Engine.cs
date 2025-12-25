@@ -33,7 +33,7 @@ namespace TriCore_OS
             Console.ReadLine();
             appsList.AppsListDo();
 
-
+            
 
         }
     }

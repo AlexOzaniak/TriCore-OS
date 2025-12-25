@@ -3,25 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Login
 {
 
     internal class FileRegistration : FileLogin
     {
+        Registration reg = new Registration();
         public void RegisterDetails()
         {
-            Console.WriteLine(@"
-______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _ 
-| ___ \  ___|  __ \_   _/  ___|_   _| ___ \/ _ \_   _|_   _|  _  | \ | |
-| |_/ / |__ | |  \/ | | \ `--.  | | | |_/ / /_\ \| |   | | | | | |  \| |
-|    /|  __|| | __  | |  `--. \ | | |    /|  _  || |   | | | | | | . ` |
-| |\ \| |___| |_\ \_| |_/\__/ / | | | |\ \| | | || |  _| |_\ \_/ / |\  |
-\_| \_\____/ \____/\___/\____/  \_/ \_| \_\_| |_/\_/  \___/ \___/\_| \_/
-                                                                        
-                                                                        ");
-            Console.WriteLine("Enter your  username:");
-           
+            reg.RegistrationUI();
+            CenteringCursor();
             Username = Console.ReadLine();
             
             if (Username == null)
@@ -29,7 +22,7 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
                 Console.WriteLine("Username Can not Be Empty");
             }
 
-            Console.WriteLine("Enter your  password:");
+            CenteringCursorPassword();
 
             Password = Console.ReadLine();
             if (Password == null)
@@ -40,12 +33,29 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
             SaveDetails();
             Console.WriteLine("Registration Successful!");
         }
+
+            private void CenteringCursor()
+            {
+                 int centerX = Console.WindowWidth / 2;
+                 int centerY = Console.WindowHeight / 2;
+                 int y = centerY + 1;
+                 int x = Math.Max(0, centerX - 15);
+                 Console.SetCursorPosition(x, y);
+            }
+        public void CenteringCursorPassword()
+        {
+            int centerX = Console.WindowWidth / 2;
+            int centerY = Console.WindowHeight / 2;
+            int y = centerY + 3;
+            int x = Math.Max(0, centerX - 15);
+            Console.SetCursorPosition(x, y);
+        }
+
     }
 
 
 
-
-}
+    }
 
 
 
