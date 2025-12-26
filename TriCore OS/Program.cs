@@ -9,7 +9,7 @@ MainGraphics mainGraphics = new MainGraphics();
 
 
 TextCentering textCentering = new TextCentering();
-logoSchreen ui2 = new logoSchreen();
+logoScreen ui2 = new logoScreen();
 LoginDetailsExtraction extraction = new LoginDetailsExtraction();
 Zobrazenie_Casu cas = new Zobrazenie_Casu();
 cas.ShowTime();
