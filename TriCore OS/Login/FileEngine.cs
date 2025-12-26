@@ -1,4 +1,4 @@
-﻿using TriCore_OS;
+﻿using System.Diagnostics;
 using TriCore_OS.Login;
 
 public class FileEngine : FileLogin
@@ -10,8 +10,16 @@ public class FileEngine : FileLogin
 
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
-        registration.FilePath = FilePath;
-    }
+        PaswordEncrypting encrypting = new PaswordEncrypting();
+        
+
+
+
+
+
+
+
+
 
     public void FileLoginProcess(LoginDetailsExtraction extraction)
     {
@@ -23,6 +31,9 @@ public class FileEngine : FileLogin
         string InputUsername = Console.ReadLine();
         engine.CenteringCursorPassword();
         string InputPassword = Console.ReadLine();
+        Console.WriteLine(InputPassword);
+     
+       
 
 
         if (InputUsername != extraction.SavedUserName)
@@ -33,11 +44,30 @@ public class FileEngine : FileLogin
         else if (InputPassword != extraction.SavedPassword)
         {
             Console.WriteLine("wrong Password");
-            Console.Clear();
+
         }
         else
         {
-            //Console.WriteLine("Access Granted");          //this is for development
+            Console.Clear();
+            Console.WriteLine("Logging In");
+            
+            for ( int i = 0; i < 10; i++ )
+            {
+                
+                Console.Write(">");
+                Thread.Sleep(400);
+                
+            }
+            Console.WriteLine();
+            
+            Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
+
         }
+
+
+
+
+
+
     }
 }
