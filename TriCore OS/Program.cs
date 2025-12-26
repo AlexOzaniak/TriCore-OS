@@ -1,3 +1,7 @@
+﻿using TriCore_OS;
+using TriCore_OS.Grafika;
+Main_Engine engine = new Main_Engine();
+engine.Engine();
 
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;

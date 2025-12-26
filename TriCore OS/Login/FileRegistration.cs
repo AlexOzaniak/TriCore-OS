@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Login
 {
@@ -64,6 +65,7 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
             }
             PaswordEncrypting encrypting = new PaswordEncrypting();
 
+            CenteringCursorPassword();
 
 
 
@@ -90,10 +92,28 @@ ______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _
 
     }
 
+            private void CenteringCursor()
+            {
+                 int centerX = Console.WindowWidth / 2;
+                 int centerY = Console.WindowHeight / 2;
+                 int y = centerY + 1;
+                 int x = Math.Max(0, centerX - 15);
+                 Console.SetCursorPosition(x, y);
+            }
+        public void CenteringCursorPassword()
+        {
+            int centerX = Console.WindowWidth / 2;
+            int centerY = Console.WindowHeight / 2;
+            int y = centerY + 3;
+            int x = Math.Max(0, centerX - 15);
+            Console.SetCursorPosition(x, y);
+        }
+
+    }
 
 
 
-}
+    }
 
 
 

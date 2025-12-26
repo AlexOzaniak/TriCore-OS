@@ -3,9 +3,9 @@ using TriCore_OS.Login;
 
 public class FileEngine : FileLogin
 {
-    public void EngineStart(LoginDetailsExtraction extraction)
+     FileRegistration registration = new FileRegistration();
+    public void FileStart(LoginDetailsExtraction extraction)
     {
-        FileRegistration registration = new FileRegistration();
         Console.CursorVisible = true;
 
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -21,14 +21,15 @@ public class FileEngine : FileLogin
 
 
 
+    public void FileLoginProcess(LoginDetailsExtraction extraction)
+    {
+        Login_Engine engine = new Login_Engine();
 
-        registration.FilePath = FilePath;
         extraction.FilePath = FilePath;
-        Console.Clear();
         extraction.ExtractLoginDetails(extraction);
-        Console.WriteLine("Hello User Please Insert Your Username");
+        
         string InputUsername = Console.ReadLine();
-        Console.WriteLine($"Hello {extraction.SavedUserName} Please Insert Your Password");
+        engine.CenteringCursorPassword();
         string InputPassword = Console.ReadLine();
         Console.WriteLine(InputPassword);
      

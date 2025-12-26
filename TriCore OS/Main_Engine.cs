@@ -21,19 +21,19 @@ namespace TriCore_OS
             loginScreenUI loginScreenUI = new loginScreenUI();
             MainGraphics mainGraphics = new MainGraphics();
             LoginDetailsExtraction extraction = new LoginDetailsExtraction();
-            //fileEngine.EngineStart(extraction);
+            Login_Engine loginEngine = new Login_Engine();
+           
 
-
-           logoScreen.StartUI();
+            loginEngine.StartLoginProcess();
+            logoScreen.StartUI();
            Thread.Sleep(2000);
-           loginScreenUI.LoginScreenUIDo();
-            Console.ReadLine();
+           loginEngine.LoginProcess();
             Console.Clear();
             mainGraphics.mainGraphics();
             Console.ReadLine();
             appsList.AppsListDo();
 
-
+            
 
         }
     }
