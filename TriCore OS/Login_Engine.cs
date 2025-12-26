@@ -8,7 +8,7 @@ using TriCore_OS.Login;
 
 namespace TriCore_OS
 {
-    internal class Login_Engine
+    public class Login_Engine
     {
         FileEngine fileEngine = new FileEngine();
         loginScreenUI loginUI = new loginScreenUI();
