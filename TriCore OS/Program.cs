@@ -6,7 +6,8 @@ using TriCore_OS.Spustanie_Programov;
 FileEngine engine = new FileEngine();
 loginScreenUI ui = new loginScreenUI();
 MainGraphics mainGraphics = new MainGraphics();
-
+Main_Engine mainEngine = new Main_Engine();
+mainEngine.Engine();
 
 TextCentering textCentering = new TextCentering();
 logoScreen ui2 = new logoScreen();

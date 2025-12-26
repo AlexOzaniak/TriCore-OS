@@ -12,14 +12,6 @@ public class FileEngine : FileLogin
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
         PaswordEncrypting encrypting = new PaswordEncrypting();
-
-
-
-
-
-
-
-
     }
 
     public void FileLoginProcess(LoginDetailsExtraction extraction)
@@ -39,7 +31,7 @@ public class FileEngine : FileLogin
 
         if (InputUsername != extraction.SavedUserName)
         {
-            Console.WriteLine("wrong name");
+            //Console.WriteLine("wrong name");                //this is for development
             registration.RegisterDetails();
         }
         else if (InputPassword != extraction.SavedPassword)
