@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TriCore_OS.Login
 {
@@ -42,6 +44,17 @@ namespace TriCore_OS.Login
         public void RegisterDetails()
         {
             FileEngine rngine = new FileEngine();
+            
+            if (File.Exists(FilePath))
+            {
+                File.WriteAllText(FilePath, "");
+            }
+            else
+            {
+                Console.WriteLine("File does not exist.");
+            }
+
+
 
 
             Console.WriteLine(@"

@@ -5,6 +5,7 @@ public class FileEngine : FileLogin
 {
     public void EngineStart(LoginDetailsExtraction extraction)
     {
+        FileLogin login = new FileLogin();
         FileRegistration registration = new FileRegistration();
         Console.CursorVisible = true;
 
