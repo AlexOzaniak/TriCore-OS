@@ -2,35 +2,31 @@
 using TriCore_OS;
 using TriCore_OS.Login;
 
-public class FileEngine : FileLogin
+public class FileEngine :FileLogin
 {
      FileRegistration registration = new FileRegistration();
-    FileLogin login1 = new FileLogin();
-    LoginDetailsExtraction extraction1 = new LoginDetailsExtraction();
+    Login_Engine Login_Engine = new Login_Engine();
+    LoginDetailsExtraction extraction = new LoginDetailsExtraction();
+    
 
-    public void FileStart(LoginDetailsExtraction extraction)
+    public void FileStart(FileLogin login )
     {
 
         Console.CursorVisible = true;
-
-    }
-    public void FileLoginProcess(LoginDetailsExtraction extraction,Login_Engine engine, FileLogin login)
-    {
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
-        login1.FilePath = this.FilePath;
-        PaswordEncrypting encrypting = new PaswordEncrypting();
-       
+        FilePath = Path.Combine(roamingFolder, "userlogininfo.txt");
+        login.FilePath = this.FilePath;
+        registration.FilePath = this.FilePath;
 
 
-       
+        Console.WriteLine("type your username");
         string InputUsername = Console.ReadLine();
-        engine.CenteringCursorPassword();
+        Login_Engine.CenteringCursorPassword();
+        Console.WriteLine("type your password");
         string InputPassword = Console.ReadLine();
         Console.WriteLine(InputPassword);
-        extraction.ExtractLoginDetails(extraction1);
-
-
+        extraction.ExtractLoginDetails(login);
+        PaswordEncrypting encrypting = new PaswordEncrypting();
 
 
 

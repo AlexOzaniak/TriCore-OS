@@ -16,7 +16,9 @@ LoginDetailsExtraction extraction = new LoginDetailsExtraction();
 Zobrazenie_Casu cas = new Zobrazenie_Casu();
 StartingProgram program = new StartingProgram();
 Login_Engine login_Engine = new Login_Engine();
-FileLogin login  = new FileLogin();
+FileLogin login = new FileLogin();
+
+
 /*
 for (int  i = 0; i < 1; i++)
 {
@@ -27,4 +29,4 @@ for (int  i = 0; i < 1; i++)
 */
 
 
-engine.FileLoginProcess(extraction,login_Engine,login );
+login_Engine.StartLoginProcess(engine,login);

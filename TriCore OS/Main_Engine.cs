@@ -18,13 +18,14 @@ namespace TriCore_OS
             logoScreen logoScreen = new logoScreen();
             FileEngine fileEngine = new FileEngine();
             AppsList appsList = new AppsList();
+            FileLogin login = new FileLogin();
             loginScreenUI loginScreenUI = new loginScreenUI();
             MainGraphics mainGraphics = new MainGraphics();
             LoginDetailsExtraction extraction = new LoginDetailsExtraction();
             Login_Engine loginEngine = new Login_Engine();
            
 
-            loginEngine.StartLoginProcess(fileEngine);
+            loginEngine.StartLoginProcess(fileEngine,login);
             logoScreen.StartUI();
            Thread.Sleep(2000);
            loginEngine.LoginProcess();

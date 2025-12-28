@@ -11,23 +11,28 @@ namespace TriCore_OS
     public class Login_Engine
     {
        
+
         
-        public void StartLoginProcess(FileEngine fileEngine)
+       
+
+
+
+        public void StartLoginProcess(FileEngine fileEngine,FileLogin login)
         {
 
             Console.Clear();
-            //fileEngine.FileStart(new LoginDetailsExtraction());
+            fileEngine.FileStart(login);
         }
         public void LoginProcess()
         {
-            LoginDetailsExtraction extraction1 = new LoginDetailsExtraction();
             Login_Engine engine1 = new Login_Engine();
 
-            FileEngine fileEngine = new FileEngine();
+
+            
             loginUI.LoginScreenUIDo();
             Console.CursorVisible = true;
-            CenteringCursor();
-            fileEngine.FileLoginProcess(extraction1,engine1,fileEngine);
+           engine1.CenteringCursor();
+
             Thread.Sleep(1000);
             loadingGraphics.LoadingScreenUI();
         }
