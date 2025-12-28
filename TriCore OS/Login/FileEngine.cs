@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using TriCore_OS;
 using TriCore_OS.Login;
 
 public class FileEngine : FileLogin
@@ -11,7 +12,6 @@ public class FileEngine : FileLogin
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         FilePath = Path.Combine(roamingFolder, @"userlogininfo.txt");
         PaswordEncrypting encrypting = new PaswordEncrypting();
-        
 
 
 
@@ -21,6 +21,7 @@ public class FileEngine : FileLogin
 
 
 
+    }
     public void FileLoginProcess(LoginDetailsExtraction extraction)
     {
         Login_Engine engine = new Login_Engine();
