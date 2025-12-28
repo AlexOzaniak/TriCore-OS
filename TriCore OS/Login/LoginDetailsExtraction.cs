@@ -3,22 +3,25 @@ using System.IO;
 
 namespace TriCore_OS.Login
 {
-    public class LoginDetailsExtraction : FileLogin
+    public class LoginDetailsExtraction:FileLogin
     {
-        
+        FileRegistration registration = new FileRegistration();
+
         public string SavedUserName { get; private set; }
         public string SavedPassword { get; private set; }
 
-        FileRegistration registration = new FileRegistration();
+       
 
-        public void ExtractLoginDetails(FileLogin login)
+        public void ExtractLoginDetails(LoginDetailsExtraction extraction1)
         {
+          
             
-            login.FilePath = this.FilePath;
+           
 
             if (File.Exists(FilePath) == false)
                 
             {
+
                 File.Create(FilePath).Close();
                 Console.WriteLine("Súbor bol vytvorený: " + FilePath);
                 return;
@@ -26,11 +29,12 @@ namespace TriCore_OS.Login
 
            
             string[] lines = File.ReadAllLines(FilePath);
+            FileLogin login1 = new FileLogin();
 
             
 
             
-            ExtractInfo(login);
+            ExtractInfo(login1);
         }
 
         public void ExtractInfo(FileLogin login)
@@ -42,19 +46,18 @@ namespace TriCore_OS.Login
 
             string[] parts = firstLine.Split(';');
 
-            if (parts.Length == 2)
-            {
+            
                 SavedUserName = parts[0];
 
                 
                 SavedPassword = CaesarDecrypt(parts[1]);
 
               
-            }
+            
 
         }
         public string CaesarDecrypt(string input, int shift = 3)
-        {
+        { // niektore z tohto je gpt lebo sm absolutne nechapal ako mam urobit to sifru
             char[] buffer = input.ToCharArray();
 
             for (int i = 0; i < buffer.Length; i++)

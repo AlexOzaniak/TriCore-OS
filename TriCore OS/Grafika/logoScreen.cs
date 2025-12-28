@@ -1,6 +1,6 @@
 ﻿namespace TriCore_OS.Grafika
 {
-    internal class logoSchreen
+    internal class logoScreen
     {
         private int positionX = 55;
         private int positionX2 = 35;
