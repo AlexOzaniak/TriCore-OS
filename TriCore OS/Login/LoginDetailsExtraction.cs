@@ -42,19 +42,18 @@ namespace TriCore_OS.Login
 
             string[] parts = firstLine.Split(';');
 
-            if (parts.Length == 2)
-            {
+            
                 SavedUserName = parts[0];
 
                 
                 SavedPassword = CaesarDecrypt(parts[1]);
 
               
-            }
+            
 
         }
         public string CaesarDecrypt(string input, int shift = 3)
-        {
+        { // niektore z tohto je gpt lebo sm absolutne nechapal ako mam urobit to sifru
             char[] buffer = input.ToCharArray();
 
             for (int i = 0; i < buffer.Length; i++)

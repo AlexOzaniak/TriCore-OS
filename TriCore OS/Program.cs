@@ -13,8 +13,13 @@ TextCentering textCentering = new TextCentering();
 logoScreen ui2 = new logoScreen();
 LoginDetailsExtraction extraction = new LoginDetailsExtraction();
 Zobrazenie_Casu cas = new Zobrazenie_Casu();
-cas.ShowTime();
-Console.ReadKey();
+StartingProgram program = new StartingProgram();
+for (int  i = 0; i < 1; i++)
+{
+    program.StartProgram();
+    Console.ReadKey();
+}
+
 
 
 engine.FileLoginProcess(extraction);
