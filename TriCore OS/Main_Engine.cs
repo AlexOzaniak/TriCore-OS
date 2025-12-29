@@ -10,6 +10,8 @@ namespace TriCore_OS
 {
     internal class Main_Engine
     {
+        // patova classa nepouzivat !!!!!!
+
         public void Engine()
         {
             Console.WriteLine("Tri core");

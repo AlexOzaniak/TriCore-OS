@@ -10,6 +10,7 @@ namespace TriCore_OS
 {
     public class Login_Engine
     {
+        // patova classa nepouzivat !!!!!!
        
 
         

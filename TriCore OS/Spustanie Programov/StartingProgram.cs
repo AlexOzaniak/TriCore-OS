@@ -12,13 +12,24 @@ namespace TriCore_OS.Spustanie_Programov
         public void StartProgram()
         {
             Console.Write(" Which app do u want to open:");
-            string input = Console.ReadLine().Trim();
+            
+            
+                string input = Console.ReadLine().Trim();
+            try
+            { 
 
-            Process.Start(new ProcessStartInfo
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = input,
+                    UseShellExecute = true
+                });
+            }  
+            
+            catch (Exception ex)
             {
-                FileName = input,
-                UseShellExecute = true
-            });
+                Console.WriteLine("App not found or could not be opened. Please try again.");
+            }
+            
 
         }
     }
