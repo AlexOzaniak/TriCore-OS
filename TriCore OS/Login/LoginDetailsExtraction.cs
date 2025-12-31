@@ -3,29 +3,31 @@ using System.IO;
 
 namespace TriCore_OS.Login
 {
-    public class LoginDetailsExtraction : FileLogin
+    public class LoginDetailsExtraction
     {
         
+
         public string SavedUserName { get; private set; }
         public string SavedPassword { get; private set; }
 
-        FileRegistration registration = new FileRegistration();
+       
 
         public void ExtractLoginDetails(FileLogin login)
         {
+          
             
-            login.FilePath = this.FilePath;
-
-            if (File.Exists(FilePath) == false)
+            if (File.Exists(login.FilePath) == false)
                 
             {
-                File.Create(FilePath).Close();
-                Console.WriteLine("Súbor bol vytvorený: " + FilePath);
+
+                File.Create(login.FilePath).Close();
+                Console.WriteLine("Súbor bol vytvorený: " +login.FilePath);
                 return;
             }
 
            
-            string[] lines = File.ReadAllLines(FilePath);
+            string[] lines = File.ReadAllLines(login.FilePath);
+            
 
             
 
@@ -75,4 +77,3 @@ namespace TriCore_OS.Login
 
     }
 }
-

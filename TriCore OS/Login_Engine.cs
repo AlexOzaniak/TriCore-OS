@@ -8,25 +8,36 @@ using TriCore_OS.Login;
 
 namespace TriCore_OS
 {
-    internal class Login_Engine
+    public class Login_Engine
     {
-        FileEngine fileEngine = new FileEngine();
-        loginScreenUI loginUI = new loginScreenUI();
-        LoadingGraphics loadingGraphics = new LoadingGraphics();
-        public void StartLoginProcess()
+       
+
+        
+       
+
+
+
+        public void StartLoginProcess(FileEngine fileEngine,FileLogin login)
         {
+
             Console.Clear();
-            fileEngine.FileStart(new LoginDetailsExtraction());
+            fileEngine.FileStart(login);
         }
         public void LoginProcess()
         {
+            Login_Engine engine1 = new Login_Engine();
+
+
+            
             loginUI.LoginScreenUIDo();
             Console.CursorVisible = true;
-            CenteringCursor();
-            fileEngine.FileLoginProcess(new LoginDetailsExtraction());
+           engine1.CenteringCursor();
+
             Thread.Sleep(1000);
             loadingGraphics.LoadingScreenUI();
         }
+        loginScreenUI loginUI = new loginScreenUI();
+        LoadingGraphics loadingGraphics = new LoadingGraphics();
 
         private void CenteringCursor()
         {
