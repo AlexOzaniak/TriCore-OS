@@ -18,7 +18,7 @@ namespace TriCore_OS.Login
 
         public string GetRegisterPassword()
         {
-            Console.WriteLine("Enter your  password:");
+            //Console.WriteLine("Enter your  password:");
 
             Password = Console.ReadLine();
 
@@ -47,6 +47,7 @@ namespace TriCore_OS.Login
 
 
 
+
             
             registrUI.RegistrationUI();
             CenteringCursor();
@@ -56,9 +57,9 @@ namespace TriCore_OS.Login
             {
                 Console.WriteLine("Username Can not Be Empty");
             }
-            PaswordEncrypting encrypting = new PaswordEncrypting();
 
             CenteringCursorPassword();
+            PaswordEncrypting encrypting = new PaswordEncrypting();
 
             SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");

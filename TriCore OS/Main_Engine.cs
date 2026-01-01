@@ -32,7 +32,7 @@ namespace TriCore_OS
             mainGraphics.mainGraphics();
             Console.ReadLine();
             appsList.AppsListDo();
-
+            Console.ReadLine();
             
 
         }
