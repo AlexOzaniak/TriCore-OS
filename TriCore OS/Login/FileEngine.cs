@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using TriCore_OS;
 using TriCore_OS.Login;
 
@@ -36,13 +37,14 @@ public class FileEngine : FileLogin
         }
         else if (InputPassword != extraction.SavedPassword)
         {
-            Console.WriteLine("wrong Password");
+            //Console.WriteLine("wrong Password");              //this is for development
 
         }
         else
         {
             Console.Clear();
             Console.WriteLine("Logging In");
+        
             
             for ( int i = 0; i < 10; i++ )
             {
@@ -53,14 +55,18 @@ public class FileEngine : FileLogin
             }
             Console.WriteLine();
             
-            Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
+            //Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
 
         }
 
 
+       
+    }
 
+    
+        
 
 
 
     }
-}
+

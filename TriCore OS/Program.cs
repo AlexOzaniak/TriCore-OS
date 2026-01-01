@@ -13,11 +13,9 @@ mainEngine.Engine();
 logoScreen ui2 = new logoScreen();
 LoginDetailsExtraction extraction = new LoginDetailsExtraction();
 Zobrazenie_Casu cas = new Zobrazenie_Casu();
-StartingProgram program = new StartingProgram();
 Login_Engine login_Engine = new Login_Engine();
 FileLogin login = new FileLogin();
 
-ui2.StartUI();
 /*
 for (int  i = 0; i < 1; i++)
 {
