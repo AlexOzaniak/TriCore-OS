@@ -55,17 +55,22 @@ namespace TriCore_OS.Login
 
         }
         public string CaesarDecrypt(string input, int shift = 3)
-        { // niektore z tohto je gpt lebo sm absolutne nechapal ako mam urobit to sifru
+        {
             char[] buffer = input.ToCharArray();
 
             for (int i = 0; i < buffer.Length; i++)
             {
                 char c = buffer[i];
 
-                if (char.IsLetter(c))
+                // veľké písmená A-Z
+                if (c >= 'A' && c <= 'Z')
                 {
-                    char offset = char.IsUpper(c) ? 'A' : 'a';
-                    c = (char)((((c - offset) - shift + 26) % 26) + offset);
+                    c = (char)(((c - 'A' - shift + 26) % 26) + 'A');
+                }
+                // malé písmená a-z
+                else if (c >= 'a' && c <= 'z')
+                {
+                    c = (char)(((c - 'a' - shift + 26) % 26) + 'a');
                 }
 
                 buffer[i] = c;
@@ -73,6 +78,7 @@ namespace TriCore_OS.Login
 
             return new string(buffer);
         }
+
 
 
     }

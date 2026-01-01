@@ -22,6 +22,7 @@ namespace TriCore_OS.Programs
 
                 Console.WriteLine("\nDo you want to choose another recipe? (y/n)");
                 string again = Console.ReadLine().ToLower();
+                Console.Clear();
                 if (again != "y")
                     break; 
                 Console.Clear();
@@ -49,8 +50,8 @@ namespace TriCore_OS.Programs
         public void FirstPageRecipes()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Special thanks to Iza, Matus, Michal, and Tom for contributing their recipes.");
-            Thread.Sleep(3000);
+            Console.WriteLine("Special thanks to Iza, Matus, Michal, Patrik, David and Tom for contributing their recipes.");
+            Thread.Sleep(2200);
             Console.Clear();
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -67,12 +68,24 @@ namespace TriCore_OS.Programs
             Console.WriteLine("(4)Cabbage soup");
             DelayForFood();
             Console.WriteLine("(5)Schnitzel with potatoes");
+            DelayForFood();
+            Console.WriteLine("(6) Salmon with Potatoes ");
+            DelayForFood();
+            Console.WriteLine("(7) Skalite Special- HOMEMADE PLUM BRANDY (Slivovica)");
             
            
         }
         public int GetRecipeInput()
         {
-           int choice = int.Parse(Console.ReadLine());
+            int choice = 0;
+            try
+            {
+                 choice = int.Parse(Console.ReadLine());
+                Convert.ToInt32(choice);
+
+                
+            }
+            catch (FormatException) { Console.WriteLine("try Using an number"); }
             return choice;
         }
 
@@ -236,6 +249,74 @@ Steps:
 6. Mash potatoes with butter, milk, and salt.
 7. Serve schnitzel with mashed potatoes.
 ");
+            }
+            else if (choice == 6)
+            {
+                Console.Clear();
+                Console.WriteLine(@"
+==============================
+SALMON WITH POTATOES
+==============================
+
+Ingredients:
+- Salmon fillets
+- Salt, black pepper
+- Lemon
+- Olive oil
+- Garlic (optional)
+- Fresh herbs (dill or parsley)
+
+Potatoes:
+- Potatoes
+- Butter or olive oil
+- Salt
+
+Steps:
+1. Season salmon with salt and black pepper.
+2. Drizzle with olive oil and lemon juice.
+3. Add garlic and herbs on top.
+4. Let rest for 10 minutes.
+5. Preheat pan or oven to medium heat.
+6. Cook salmon skin-side down for 4–5 minutes.
+7. Flip and cook 2–3 more minutes.
+8. Boil potatoes in salted water until soft.
+9. Drain potatoes and add butter or olive oil.
+10. Serve salmon with potatoes and lemon.
+");
+
+            }
+            else if ( choice == 7)
+            {
+                Console.Clear();
+                Console.WriteLine(@"
+==============================
+HOMEMADE PLUM BRANDY (Slivovica)
+==============================
+
+Ingredients:
+- Ripe plums
+- Clean water
+- Sugar (optional, if plums are not sweet)
+- Yeast (optional, natural fermentation preferred)
+
+Steps:
+1. Wash plums and remove pits.
+2. Crush plums into a mash.
+3. Place mash into a clean fermentation container.
+4. Add a little water if mash is too thick.
+5. Optionally add sugar if plums lack sweetness.
+6. Cover loosely to allow gases to escape.
+7. Let ferment in a warm place for 2–4 weeks.
+8. Stir occasionally during fermentation.
+9. Fermentation is done when bubbling stops.
+10. Distill the fermented mash using a still.
+11. Collect the distillate carefully.
+12. Let the brandy rest for several weeks.
+13. Dilute with water to desired strength if needed.
+14. Store in glass bottles or wooden barrel.
+15. Serve responsibly.
+");
+
             }
 
             else
