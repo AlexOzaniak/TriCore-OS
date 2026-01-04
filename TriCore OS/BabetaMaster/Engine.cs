@@ -9,8 +9,9 @@ namespace TriCore_OS.BabetaMaster
 {
     public class Engine
     {
-        public Player player;
+        public Player player;    
         private MusicPlayer music;
+        
         public void Welcome()
         {
             Console.WriteLine("Stlač hociakú klávesu.");
@@ -276,12 +277,10 @@ namespace TriCore_OS.BabetaMaster
                 Thread.Sleep(1500);
                 Console.WriteLine("System: Postupuj podľa uvedeného zoznamu");
                 Thread.Sleep(1500);
-
                 int x = 95;
                 int y = 2;
-
                 foreach (string line in player.RepairList)
-                {
+                {                
                     Console.SetCursorPosition(x, y);
                     Console.WriteLine(line);
                     y++;
@@ -367,40 +366,199 @@ namespace TriCore_OS.BabetaMaster
                     Console.SetCursorPosition(5, 17);
                     Console.WriteLine("System: Kľúč si odložil na svoje miesto");
                     player.Inventory.Remove("6-uholníkový kľúč");
+                    string path = @"C:\Users\Lenovo\Desktop\To-Do List.txt";
+                    player.RepairList = File.ReadAllLines(path).ToList();
+                    int x = 95;
+                    int y = 2;
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x,y + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+
                     if (player.RepairList.Count >= 2)
                     {
-                        string path = @"C:\Users\Lenovo\Desktop\To-Do List.txt";
                         player.RepairList.RemoveAt(1);
-                        File.WriteAllLines(path, player.RepairList);
+                    }
+                   
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Console.SetCursorPosition(x, y + i);
+                        Console.WriteLine(new string(' ', 50));
+                    }
 
-                        int x = 95;
-                        int y = 2;
-                        
-                        for (int i = 0; i < 20; i++)
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x, y + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+                }
+            }
+            ExchangeSparkPlug();
+            
+            void ExchangeFuelPipe()
+            {
+                int x = 95;
+                int y = 2;
+                Thread.Sleep(3500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Teraz ťa čaká výmena palivovej hadičky");
+
+                Thread.Sleep(500);
+                for (int i = 0; i < player.RepairList.Count; i++)
+                {
+                    Console.SetCursorPosition(x, y + i);
+                    Console.WriteLine(player.RepairList[i]);
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Choď  ku stole po kombinačky");
+                char go = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (go == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 4);
+                    Console.WriteLine("System: Si pri stole a zober kombinačky");                  
+                }
+                char takepliers = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (takepliers == 'r')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 5);
+                    player.Inventory.Add("Kombinačky");
+                    Console.WriteLine("System: Kombinačky máš v inventáry");
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 6);
+                Console.WriteLine("System: Choď naspäť ku babete");
+                char gotobabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotobabeta == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 7);
+                    Console.WriteLine("System: Si pri babete. Otvor inventár, zober kombinačky do ruky a začni vymieňať hadičku");
+                }
+                char openinv = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (openinv == 'e')
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("INVENTÁR:");
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 9);
+                    player.Inventory.ForEach(Console.Write);
+                }
+
+                char takepliersonhand = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (takepliersonhand == 'q')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine("System: Kombinačky máš v ruke");
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 11);
+                Console.WriteLine("System: Začni vymieňať hadičku");
+                char repairingpipe = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (repairingpipe == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 12);
+                    Console.WriteLine("System: Hadičku si vymenil");
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 13);
+                Console.WriteLine("System: Odlož kombinačky na svoje miesto");
+                char postponepliers = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (postponepliers == 'r')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 14);
+                    Console.WriteLine("System: Kombinačky si vrátil na miesto");
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x, y + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+
+                    if (player.RepairList.Count >= 2)
+                    {
+                        player.RepairList.RemoveAt(1);
+                        player.RepairList.RemoveAt(0);
+                    }
+                    else if (player.RepairList.Count == 1)
+                    {
+                        player.RepairList.RemoveAt(0);
+                    }
+
+                    for (int i = 0; i < 20; i++)
                         {
                             Console.SetCursorPosition(x, y + i);
                             Console.WriteLine(new string(' ', 50));
                         }
-                       
-                        for (int i = 0; i < player.RepairList.Count; i++)
-                        {
-                            Console.SetCursorPosition(x, y + i);
-                            Console.WriteLine(player.RepairList[i]);
-                        }
+
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x, y + i);
+                        Console.WriteLine(player.RepairList[i]);
                     }
                 }
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 15);
+                Console.WriteLine("System: Dokončil si základnú údržbu");             
+            }           
+            ExchangeFuelPipe();
+
+            void GoSleep()
+            {
+                Thread.Sleep(3000);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Čas: 20:00");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Si unavený. Budeš pokračovať na ďalší deň");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 4);
+                Console.WriteLine("System: Choď ku posteli");
+                char gohomesleep = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gohomesleep == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 5);
+                    Console.WriteLine("System: Si pri posteli. Choď spať");
+                }
+                char gosleep = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gosleep == 'f')
+                {
+                    Thread.Sleep(1500);                   
+                    Console.SetCursorPosition(70, 20);
+                    Console.Write("Spíš");
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Thread.Sleep(300);
+                        Console.SetCursorPosition(79 + i, 20);
+                        Console.Write(".");
+                    }
+                }
+                 
             }
-
-            ExchangeSparkPlug();
             Console.ReadLine();
-
-
-
-
         }
     }
 }
 
 
-    
+
 

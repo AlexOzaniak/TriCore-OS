@@ -13,5 +13,9 @@ namespace TriCore_OS.BabetaMaster
         private int MaxHp = 100;
         public List<string> Inventory = new List<string>();
         public List<string> RepairList;
+        public Player()
+        {
+            RepairList = new List<string>();
+        }
     }
 }
