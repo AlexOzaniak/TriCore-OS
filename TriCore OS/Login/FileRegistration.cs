@@ -44,6 +44,7 @@ namespace TriCore_OS.Login
         {
             FileEngine rngine = new FileEngine();
             Registration registrUI = new Registration();
+            PaswordEncrypting encrypting = new PaswordEncrypting();
 
 
 
@@ -57,9 +58,8 @@ namespace TriCore_OS.Login
             {
                 Console.WriteLine("Username Can not Be Empty");
             }
-
             CenteringCursorPassword();
-            PaswordEncrypting encrypting = new PaswordEncrypting();
+
 
             SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");

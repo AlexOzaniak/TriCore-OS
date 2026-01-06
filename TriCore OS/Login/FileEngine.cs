@@ -22,6 +22,7 @@ public class FileEngine : FileLogin
         extraction.FilePath = FilePath;
         extraction.ExtractLoginDetails(extraction);
         
+        engine.CenteringCursor();
         string InputUsername = Console.ReadLine();
         engine.CenteringCursorPassword();
         string InputPassword = Console.ReadLine();

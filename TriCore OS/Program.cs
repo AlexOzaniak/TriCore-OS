@@ -28,4 +28,4 @@ for (int  i = 0; i < 1; i++)
 Console.ReadLine();
 cas.ShowTime();
 Console.ReadKey();
-
+program.StrartProgram();
