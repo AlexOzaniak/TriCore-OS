@@ -322,7 +322,6 @@ namespace TriCore_OS.BabetaMaster
                     Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 9);
                     Console.WriteLine("INVENTÁR:");
-                    Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 10);
                     player.Inventory.ForEach(Console.Write);
                 }
@@ -368,11 +367,11 @@ namespace TriCore_OS.BabetaMaster
                     player.Inventory.Remove("6-uholníkový kľúč");
                     string path = @"C:\Users\Lenovo\Desktop\To-Do List.txt";
                     player.RepairList = File.ReadAllLines(path).ToList();
-                    int x = 95;
-                    int y = 2;
+                    int x2 = 95;
+                    int y2 = 2;
                     for (int i = 0; i < player.RepairList.Count; i++)
                     {
-                        Console.SetCursorPosition(x,y + i);
+                        Console.SetCursorPosition(x2,y2 + i);
                         Console.WriteLine(player.RepairList[i]);
                     }
 
@@ -383,13 +382,13 @@ namespace TriCore_OS.BabetaMaster
                    
                     for (int i = 0; i < 20; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
+                        Console.SetCursorPosition(x2, y2 + i);
                         Console.WriteLine(new string(' ', 50));
                     }
 
                     for (int i = 0; i < player.RepairList.Count; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
+                        Console.SetCursorPosition(x2, y2 + i);
                         Console.WriteLine(player.RepairList[i]);
                     }
                 }
@@ -398,8 +397,8 @@ namespace TriCore_OS.BabetaMaster
             
             void ExchangeFuelPipe()
             {
-                int x = 95;
-                int y = 2;
+                int x3 = 95;
+                int y3 = 2;
                 Thread.Sleep(3500);
                 Console.Clear();
                 Thread.Sleep(1500);
@@ -409,7 +408,7 @@ namespace TriCore_OS.BabetaMaster
                 Thread.Sleep(500);
                 for (int i = 0; i < player.RepairList.Count; i++)
                 {
-                    Console.SetCursorPosition(x, y + i);
+                    Console.SetCursorPosition(x3, y3 + i);
                     Console.WriteLine(player.RepairList[i]);
                 }
 
@@ -448,7 +447,6 @@ namespace TriCore_OS.BabetaMaster
                     Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 8);
                     Console.WriteLine("INVENTÁR:");
-                    Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 9);
                     player.Inventory.ForEach(Console.Write);
                 }
@@ -484,35 +482,30 @@ namespace TriCore_OS.BabetaMaster
                     player.Inventory.Remove("Kombinačky");
                     for (int i = 0; i < player.RepairList.Count; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
+                        Console.SetCursorPosition(x3, y3 + i);
                         Console.WriteLine(player.RepairList[i]);
                     }
 
-                    if (player.RepairList.Count >= 3)
+                    if (player.RepairList.Count >= 2)
                     {
                         player.RepairList.RemoveAt(1);
                         player.RepairList.RemoveAt(0);
-                        player.RepairList.RemoveAt(2);
                     }
                     else if (player.RepairList.Count == 2)
                     {
                         player.RepairList.RemoveAt(0);
                         player.RepairList.RemoveAt(1);
                     }
-                    else if (player.RepairList.Count == 1)
-                    {
-                        player.RepairList.RemoveAt(0);
-                    }
 
                         for (int i = 0; i < 20; i++)
                         {
-                            Console.SetCursorPosition(x, y + i);
+                            Console.SetCursorPosition(x3, y3 + i);
                             Console.WriteLine(new string(' ', 50));
                         }
 
                     for (int i = 0; i < player.RepairList.Count; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
+                        Console.SetCursorPosition(x3, y3 + i);
                         Console.WriteLine(player.RepairList[i]);
                     }
                 }
@@ -649,13 +642,14 @@ namespace TriCore_OS.BabetaMaster
 
                 Console.SetCursorPosition(5, 2);
                 Console.WriteLine("System: Pokračuj podľa zoznamu ako včera");
-                int x = 95;
-                int y = 2;
+                int x4 = 95;
+                int y4 = 2;
+                Thread.Sleep(500);
                 foreach (string line in player.RepairList)
                 {
-                    Console.SetCursorPosition(x, y);
+                    Console.SetCursorPosition(x4, y4);
                     Console.WriteLine(line);
-                    y++;
+                    y4++;
                 }
                 Console.SetCursorPosition(5, 3);
                 Thread.Sleep(1500);
@@ -706,7 +700,6 @@ namespace TriCore_OS.BabetaMaster
                     Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 11);
                     Console.WriteLine("INVENTÁR:");
-                    Thread.Sleep(1000);
                     Console.SetCursorPosition(5, 12);
                     player.Inventory.ForEach(Console.Write);
                 }
@@ -725,24 +718,44 @@ namespace TriCore_OS.BabetaMaster
                     Thread.Sleep(4000);
                     Console.SetCursorPosition(5, 14);
                     Console.WriteLine("System: Piest si tam úspešne vložil");
+                }
+                
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 15);
+                Console.WriteLine("System: Odlož náradie,ktoré si použil");
+                int x5 = 95;
+                int y5 = 2;
+                char puttoolsback = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (puttoolsback == 'r')
+                {
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x5, y5 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
 
-                    if (player.RepairList.Count >= 2)
+                    if (player.RepairList.Count >= 3)
                     {
                         player.RepairList.RemoveAt(2);
                     }
-     
+
                     for (int i = 0; i < 20; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
-                        Console.WriteLine(new string(' ', 50));
+                        Console.SetCursorPosition(x5, y5 + i);
+                        Console.Write(new string(' ', 50));
                     }
 
                     for (int i = 0; i < player.RepairList.Count; i++)
                     {
-                        Console.SetCursorPosition(x, y + i);
+                        Console.SetCursorPosition(x5, y5 + i);
                         Console.WriteLine(player.RepairList[i]);
                     }
+
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 16);
+                    Console.WriteLine("System: Náradie si odložil");
                 }
+                
             }
             ExchangePiston();
 
