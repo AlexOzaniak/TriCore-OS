@@ -14,15 +14,16 @@ namespace TriCore_OS.BabetaMaster
         
         public void Welcome()
         {
-            Console.WriteLine("Stlač hociakú klávesu.");
+            Console.WriteLine("Stlač ENTER.");
             Console.ReadLine();
             Console.Clear();
-            music = new MusicPlayer();
-            music.Play("WelcomeSong.wav");
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
-
+        }
+        public void AboutTheGame()
+        {
+            Console.Clear();
             Thread.Sleep(1000);
 
             Console.SetCursorPosition(55, 2);
@@ -36,45 +37,52 @@ namespace TriCore_OS.BabetaMaster
             Console.SetCursorPosition(55, 6);
             Thread.Sleep(500);
             Console.WriteLine("Čaká na teba zoznam oprav, ktoré budeš musieť urobiť.");
+            Thread.Sleep(500);
             Console.SetCursorPosition(55, 7);
-            Thread.Sleep(500);
-            Console.WriteLine("Taktiež budeš prechádzať rôznymi výzvami a veľa ďalším.");
-            Thread.Sleep(500);
-            Console.SetCursorPosition(55, 9);
             Console.WriteLine("Odporúčam ti pozrieť si Nastavenia");
             Thread.Sleep(500);
-            Console.SetCursorPosition(55, 11);
-            Console.WriteLine("Ak si pripravený stlač ENTER.");
-            Console.ReadLine();
+            Console.SetCursorPosition(55, 9);
+            Console.WriteLine("Ak sa chceš vrátiť do menu stlač ESC.");
+            var key = Console.ReadKey(true).Key;
+            if (key == ConsoleKey.Escape)
+            {
+                return;
+            }
         }
         public void Settings()
         {
             while (true)
             {
                 Console.Clear();
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 18);
                 Console.WriteLine("Základné ovládanie hry:");
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 20);
                 Console.WriteLine("Pokračovať: ENTER");
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 21);
                 Console.WriteLine("Voziť sa na babete: W");
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 22);
-                Console.WriteLine("Opravovať babetu: O");
-                System.Threading.Thread.Sleep(500);
+                Console.WriteLine("Opravovať babetu, vyberať veci z babety: O");
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 23);
                 Console.WriteLine("Brať veci: R");
-                System.Threading.Thread.Sleep(500);
+                Thread.Sleep(500);
                 Console.SetCursorPosition(65, 24);
-                Console.WriteLine("Otvárať tašku: E");
+                Console.WriteLine("Otvárať inventár: E");
                 Thread.Sleep(500);
                 Console.SetCursorPosition(65, 25);
-                Console.WriteLine("Otvárať list oprav: L");
+                Console.WriteLine("Zobrať vec do ruky: Q");
                 Thread.Sleep(500);
                 Console.SetCursorPosition(65, 26);
+                Console.WriteLine("Spať: F");
+                Thread.Sleep(500);
+                Console.SetCursorPosition(65, 27);
+                Console.WriteLine("Štartovať babetu: D");
+                Thread.Sleep(500);
+                Console.SetCursorPosition(65, 29);
                 Console.WriteLine("Vrátiť do menu z Nastavení: ESC");
                 var key = Console.ReadKey(true).Key;
                 if (key == ConsoleKey.Escape)
@@ -98,7 +106,10 @@ namespace TriCore_OS.BabetaMaster
                 Console.WriteLine("2. NASTAVENIA");
                 Thread.Sleep(500);
                 Console.SetCursorPosition(70, 24);
-                Console.WriteLine("3. KONIEC");
+                Console.WriteLine("3. O HRE");
+                Thread.Sleep(500);
+                Console.SetCursorPosition(70, 27);
+                Console.WriteLine("4. KONIEC");
                 ;
                 char input = char.ToLower(Console.ReadKey(true).KeyChar);
                 switch (input)
@@ -112,6 +123,9 @@ namespace TriCore_OS.BabetaMaster
                         Settings();
                         break;
                     case '3':
+                        AboutTheGame();
+                        break;
+                    case '4':
                         music.Stop();
                         Environment.Exit(0);
                         break;
@@ -171,10 +185,10 @@ namespace TriCore_OS.BabetaMaster
                 Thread.Sleep(3500);
                 Console.SetCursorPosition(5, 10);
                 Thread.Sleep(1500);
-                Console.WriteLine("Ty: Čau, tata");
+                Console.WriteLine("Ty: Čau tata");
                 Console.SetCursorPosition(5, 11);
                 Thread.Sleep(1500);
-                Console.WriteLine("Otec: Nazdar, už si mal byť zobudený pred hodinou. lebo mi ideš pomáhať s drevom");
+                Console.WriteLine("Otec: Nazdar, už si mal byť zobudený pred hodinou. Ideš pomáhať s drevom");
                 Console.SetCursorPosition(5, 12);
                 Thread.Sleep(1500);
                 Console.WriteLine("Ty: To zas ? Šak minule sme rezali drevo.");
@@ -198,7 +212,7 @@ namespace TriCore_OS.BabetaMaster
 
                 Console.SetCursorPosition(5, 10);
                 Thread.Sleep(1500);
-                Console.WriteLine("Otec: Zober motorovku ja zoberem sekeru a bendzín");
+                Console.WriteLine("Otec: Zober motorovku ja zoberem sekeru a benzín");
                 Console.SetCursorPosition(5, 11);
                 Thread.Sleep(1500);
                 Console.WriteLine("Ty: No ja už idem ku drevu");
@@ -734,9 +748,9 @@ namespace TriCore_OS.BabetaMaster
                         Console.WriteLine(player.RepairList[i]);
                     }
 
-                    if (player.RepairList.Count >= 3)
+                    if (player.RepairList.Count >= 4)
                     {
-                        player.RepairList.RemoveAt(2);
+                        player.RepairList.RemoveAt(3);
                     }
 
                     for (int i = 0; i < 20; i++)
@@ -754,14 +768,538 @@ namespace TriCore_OS.BabetaMaster
                     Thread.Sleep(1500);
                     Console.SetCursorPosition(5, 16);
                     Console.WriteLine("System: Náradie si odložil");
+                    player.Inventory.Remove("Piest");
                 }
                 
             }
             ExchangePiston();
 
+            void ExchangePistonRing()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Super zvládol si výmenu piestu");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Teraz ťa čaká výmena piestneho krúžku");
+                int x5 = 95;
+                int y5 = 2;
+                Thread.Sleep(500);
+                foreach (string line in player.RepairList)
+                {
+                    Console.SetCursorPosition(x5, y5);
+                    Console.WriteLine(line);
+                    y5++;
+                }
 
-            
-            Console.ReadLine();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 4);
+                Console.WriteLine("System: Choď po nový krúžok");
+                char gotonewring = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotonewring == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 5);
+                    Console.WriteLine("System: Zober nový krúžok");
+                }
+
+                char getnewring = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getnewring == 'r')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 6);
+                    Console.WriteLine("System: Zobral si nový krúžok");
+                    player.Inventory.Add("Piestny Krúžok");
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 7);
+                Console.WriteLine("System: Choď naspäť ku babete");
+
+                char gotobabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotobabeta == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("System: Si pri babete môžeš začať vymienať");
+                }
+
+                char openinv = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (openinv == 'e')
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("INVENTÁR:");
+                    Console.SetCursorPosition(5, 10);
+                    player.Inventory.ForEach(Console.Write);
+                }
+
+                char getringonhand = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getringonhand == 'q')
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 11);
+                    Console.WriteLine("System: Krúžok máš v ruke začni ho vymieňať");
+                }
+
+                char exchangering = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (exchangering == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 12);
+                    Console.WriteLine("System: Vymenil si piestny krúžok");
+                    player.Inventory.Remove("Piestny Krúžok");
+
+                    int x6 = 95;
+                    int y6 = 2;
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x6, y6 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+
+                    if (player.RepairList.Count >= 3)
+                    {
+                        player.RepairList.RemoveAt(2);
+                    }
+
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Console.SetCursorPosition(x6, y6 + i);
+                        Console.Write(new string(' ', 50));
+                    }
+
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x6, y6 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+                }
+            }
+            ExchangePistonRing();
+
+            void ExchangeEngineSealing()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Teraz musíš vymeniť tesnenie motora");
+                int x7 = 95;
+                int y7 = 2;
+                Thread.Sleep(500);
+                foreach (string line in player.RepairList)
+                {
+                    Console.SetCursorPosition(x7, y7);
+                    Console.WriteLine(line);
+                    y7++;
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Vyber staré tesnenie");
+
+                char putoutoldsealing = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (putoutoldsealing == 'o')
+                {
+                    Thread.Sleep(2000);
+                    Console.SetCursorPosition(5, 4);
+                    Console.WriteLine("System: Vybral si staré tesnenie");
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 5);
+                Console.WriteLine("System: Choď po nové");
+
+                char gotonewsealing = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotonewsealing == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 6);
+                    Console.WriteLine("System: Zober nové tesnenie");
+                }
+
+                char getnewsealing = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getnewsealing == 'r')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 7);
+                    Console.WriteLine("System: Choď naspäť ku babete");
+                    player.Inventory.Add("Tesnenie Motora");
+                }
+
+                char gotobabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotobabeta == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("System: Si pri babete môžeš vymieňať tesnenie");
+                }
+                char openinv = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (openinv == 'e')
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 9);
+                    Console.WriteLine("INVENTÁR:");
+                    Console.SetCursorPosition(5, 10);
+                    player.Inventory.ForEach(Console.Write);
+                }
+                char getringonhand = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getringonhand == 'q')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 11);
+                    Console.WriteLine("System: Tesnenie máš v ruke");
+                }
+
+                char exchangesealing = char.ToLower(Console.ReadKey(true).KeyChar);
+                int x8 = 95;
+                int y8 = 2;
+                if (exchangesealing == 'o')
+                {
+                    Thread.Sleep(3500);
+                    Console.SetCursorPosition(5, 12);
+                    Console.WriteLine("System: Tesnenie si vymenil");
+                    player.Inventory.Remove("Tesnenie Motora");
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x8, y8 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+
+                    if (player.RepairList.Count >= 3)
+                    {
+                        player.RepairList.RemoveAt(2);
+                        player.RepairList.RemoveAt(1);
+                    }
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Console.SetCursorPosition(x8, y8 + i);
+                        Console.Write(new string(' ', 50));
+                    }
+
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x8, y8 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }  
+                }
+            }
+            ExchangeEngineSealing();
+
+            void RepairandReplaceCabling()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Super už ideš do finále");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Musíš opraviť a vymeniť kabeláž");
+                int x9 = 95;
+                int y9 = 2;
+                Thread.Sleep(500);
+                foreach (string line in player.RepairList)
+                {
+                    Console.SetCursorPosition(x9, y9);
+                    Console.WriteLine(line);
+                    y9++;
+                }
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 4);
+                Console.WriteLine("System: Vyber starú kabeláž");
+
+                char putoutoldcabling = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (putoutoldcabling == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 5);
+                    Console.WriteLine("System: Vybral si starú kabeláž. Teraz ju oprav");
+                }
+                char repaircabling = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (repaircabling == 'o')
+                {
+                    Thread.Sleep(3000);
+                    Console.SetCursorPosition(5, 6);
+                    Console.WriteLine("System: Kabeláž si opravil. Teraz ju daj naspäť");
+                }
+                char putcablingin = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (putcablingin == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 7);
+                    Console.WriteLine("System: Kabeláž si dal naspäť");
+                }
+
+                int x10 = 95;
+                int y10 = 2;
+                for (int i = 0; i < player.RepairList.Count; i++)
+                {
+                    Console.SetCursorPosition(x10, y10 + i);
+                    Console.WriteLine(player.RepairList[i]);
+                }
+
+                if (player.RepairList.Count >= 4)
+                {
+                    player.RepairList.RemoveAt(3);
+                }
+
+                for (int i = 0; i < 20; i++)
+                {
+                    Console.SetCursorPosition(x10, y10 + i);
+                    Console.Write(new string(' ', 50));
+                }
+
+                for (int i = 0; i < player.RepairList.Count; i++)
+                {
+                    Console.SetCursorPosition(x10, y10 + i);
+                    Console.WriteLine(player.RepairList[i]);
+                }
+            }
+            RepairandReplaceCabling();
+
+            void ExchangeLightBulbs()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Ako posledné musíš vymeniť žiarovky");
+                int x11 = 95;
+                int y11 = 2;
+                Thread.Sleep(500);
+                foreach (string line in player.RepairList)
+                {
+                    Console.SetCursorPosition(x11, y11);
+                    Console.WriteLine(line);
+                    y11++;
+                }
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("Systme: Vyber staré žiarovky");
+                char putoutoldbulbs = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (putoutoldbulbs == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 4);
+                    Console.WriteLine("System: Vybral si staré žiarovky choď po nové");
+                }
+                char gofornewbulbs = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gofornewbulbs == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 5);
+                    Console.WriteLine("System: Zober nové");
+                }
+                char getnewbulbs = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getnewbulbs == 'r')
+                {
+                    player.Inventory.Add("Žiarovky");
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 6);
+                    Console.WriteLine("System: Choď naspäť ku babete a vymeň žiarovky");
+                }
+                char gotobabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotobabeta == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 7);
+                    Console.WriteLine("System: Vymeň žiarovky");
+                }
+                char openinv = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (openinv == 'e')
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 8);
+                    Console.WriteLine("INVENTÁR:");
+                    Console.SetCursorPosition(5, 9);
+                    player.Inventory.ForEach(Console.Write);
+                }
+                char getbulbsonhand = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (getbulbsonhand == 'q')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 10);
+                    Console.WriteLine("System: Žiarovky máš v ruke. Začni vymieňať");
+                }
+                char replacebulbs = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (replacebulbs == 'o')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 11);
+                    Console.WriteLine("System: Žiarovky si vymenil");
+                    player.Inventory.Remove("Žiarovky");
+
+
+                    int x12 = 95;
+                    int y12 = 2;
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x12, y12 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+
+                    if (player.RepairList.Count >= 5)
+                    {
+                        player.RepairList.RemoveAt(4);
+                        player.RepairList.RemoveAt(2);
+                    }
+
+                    for (int i = 0; i < 20; i++)
+                        {
+                            Console.SetCursorPosition(x12, y12 + i);
+                            Console.Write(new string(' ', 50));
+                        }
+
+                    for (int i = 0; i < player.RepairList.Count; i++)
+                    {
+                        Console.SetCursorPosition(x12, y12 + i);
+                        Console.WriteLine(player.RepairList[i]);
+                    }
+                }
+            }
+            ExchangeLightBulbs();
+
+            void GoSleepDay2()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("Čas: 23:00");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Choď spať");
+                char gohomesleep = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gohomesleep == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 4);
+                    Console.WriteLine("System: Si pri posteli. Choď spať");
+                }
+                char gosleep = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gosleep == 'f')
+                {
+                    Console.Clear();
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(70, 20);
+                    Console.Write("Spíš");
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Thread.Sleep(300);
+                        Console.SetCursorPosition(79 + i, 20);
+                        Console.Write(".");
+                    }
+                }
+            }
+            GoSleepDay2();
+
+            void Day3()
+            {
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("Čas: 10:00");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 10);
+                Console.WriteLine("Ty: .........");
+                Thread.Sleep(3000);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("Čas: 10:30");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Vstal si");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 4);
+                Console.WriteLine("System: Si sám doma. Ideš sa naraňajkovať");
+                Thread.Sleep(3000);
+                Console.Clear();
+
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("Čas: 11:00");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Naraňajkoval si sa a ideš štartovať babetu");
+                Thread.Sleep(2500);
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Si v garáži choď ku babete");
+                char gotobabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (gotobabeta == 'w')
+                {
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(5, 3);
+                    Console.WriteLine("System: Si pri babete naštartuj ju");
+                }
+                char startbabeta = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (startbabeta == 'd')
+                {
+                    music.Play("Davidstart.wav");
+                    Thread.Sleep(9000);
+                    Console.SetCursorPosition(5, 4);
+                    Console.WriteLine("System: Babetu si naštartoval. Môžeš sa isť odviesť");
+                }
+                char goriding = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (goriding == 'w')
+                {
+                    Console.Clear();
+                    Thread.Sleep(1500);
+                    Console.SetCursorPosition(70, 20);
+                    Console.Write("Jazdíš");
+                    music.Play("Jazda.wav");
+                    for (int i = 0; i < 20; i++)
+                    {
+                        Thread.Sleep(300);
+                        Console.SetCursorPosition(79 + i, 20);
+                        Console.Write(".");
+                    }
+                }
+
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("Čas: 13:00");
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 3);
+                Console.WriteLine("System: Dojazdil si");
+            }
+            Day3();
+
+            void End()
+            {
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(5, 2);
+                Console.WriteLine("System: Ďakujem za zahratie hry");
+                Thread.Sleep(2500);
+                Console.Clear();
+                Thread.Sleep(1500);
+                Console.SetCursorPosition(70, 20);
+                Console.Write("Returning to the menu");
+                for (int i = 0; i < 10; i++)
+                {
+                    Thread.Sleep(300);
+                    Console.SetCursorPosition(92 + i, 20);
+                    Console.Write(".");
+                }
+            }
+            End();
         }
     }
 }
