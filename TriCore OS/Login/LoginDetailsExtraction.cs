@@ -78,7 +78,7 @@ namespace TriCore_OS.Login
 
             return new string(buffer);
         }
-
+  
 
 
     }
