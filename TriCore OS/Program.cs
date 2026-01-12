@@ -1,3 +1,10 @@
+﻿using TriCore_OS.BabetaMaster;
+
+Engine engine = new Engine();
+engine.Welcome();
+engine.Menu();
+
+engine.Loading();
 ﻿using TriCore_OS;
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;
