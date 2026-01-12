@@ -43,8 +43,17 @@ namespace TriCore_OS.Login
         public void RegisterDetails()
         {
             FileEngine rngine = new FileEngine();
-            Registration registrUI = new Registration();
-            PaswordEncrypting encrypting = new PaswordEncrypting();
+            
+            if (File.Exists(FilePath))
+            {
+                File.WriteAllText(FilePath, "");
+            }
+            else
+            {
+                Console.WriteLine("File does not exist.");
+            }
+
+
 
 
 
@@ -77,7 +86,7 @@ namespace TriCore_OS.Login
         }
 
 
-    
+   
 
             private void CenteringCursor()
             {
@@ -100,8 +109,4 @@ namespace TriCore_OS.Login
 
 
 
-    }
-
-
-
-
+}

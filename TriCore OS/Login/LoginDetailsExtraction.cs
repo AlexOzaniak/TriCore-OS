@@ -3,29 +3,31 @@ using System.IO;
 
 namespace TriCore_OS.Login
 {
-    public class LoginDetailsExtraction : FileLogin
+    public class LoginDetailsExtraction
     {
         
+
         public string SavedUserName { get; private set; }
         public string SavedPassword { get; private set; }
 
-        FileRegistration registration = new FileRegistration();
+       
 
         public void ExtractLoginDetails(FileLogin login)
         {
+          
             
-            login.FilePath = this.FilePath;
-
-            if (File.Exists(FilePath) == false)
+            if (File.Exists(login.FilePath) == false)
                 
             {
-                File.Create(FilePath).Close();
-                Console.WriteLine("Súbor bol vytvorený: " + FilePath);
+
+                File.Create(login.FilePath).Close();
+                Console.WriteLine("Súbor bol vytvorený: " +login.FilePath);
                 return;
             }
 
            
-            string[] lines = File.ReadAllLines(FilePath);
+            string[] lines = File.ReadAllLines(login.FilePath);
+            
 
             
 
@@ -42,15 +44,14 @@ namespace TriCore_OS.Login
 
             string[] parts = firstLine.Split(';');
 
-            if (parts.Length == 2)
-            {
+            
                 SavedUserName = parts[0];
 
                 
                 SavedPassword = CaesarDecrypt(parts[1]);
 
               
-            }
+            
 
         }
         public string CaesarDecrypt(string input, int shift = 3)
@@ -61,10 +62,15 @@ namespace TriCore_OS.Login
             {
                 char c = buffer[i];
 
-                if (char.IsLetter(c))
+                // veľké písmená A-Z
+                if (c >= 'A' && c <= 'Z')
                 {
-                    char offset = char.IsUpper(c) ? 'A' : 'a';
-                    c = (char)((((c - offset) - shift + 26) % 26) + offset);
+                    c = (char)(((c - 'A' - shift + 26) % 26) + 'A');
+                }
+                // malé písmená a-z
+                else if (c >= 'a' && c <= 'z')
+                {
+                    c = (char)(((c - 'a' - shift + 26) % 26) + 'a');
                 }
 
                 buffer[i] = c;
@@ -74,6 +80,6 @@ namespace TriCore_OS.Login
         }
 
 
+
     }
 }
-
