@@ -22,16 +22,16 @@ namespace TriCore_OS.Login
 
         public void SaveDetails(PaswordEncrypting encrypting)
         {
-           FileRegistration registration = new FileRegistration();
-
-
-            using (StreamWriter file = new StreamWriter(FilePath, true ))
+            if (string.IsNullOrEmpty(FilePath))
             {
-                
-                file.WriteLine($"{Username};{registration.EncryptedPass(encrypting)}");
+                string roaming = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                FilePath = Path.Combine(roaming, "userlogininfo.txt");
             }
 
-
+            using (StreamWriter file = new StreamWriter(FilePath, true))
+            {
+                file.WriteLine($"{Username};{new FileRegistration().EncryptedPass(encrypting)}");
+            }
         }
     }
 }

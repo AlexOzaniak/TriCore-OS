@@ -18,7 +18,7 @@ namespace TriCore_OS.Login
 
         public string GetRegisterPassword()
         {
-            Console.WriteLine("Enter your  password:");
+            //Console.WriteLine("Enter your  password:");
 
             Password = Console.ReadLine();
 
@@ -56,33 +56,18 @@ namespace TriCore_OS.Login
 
 
 
-            Console.WriteLine(@"
-______ _____ _____ _____ _____ ___________  ___ _____ _____ _____ _   _ 
-| ___ \  ___|  __ \_   _/  ___|_   _| ___ \/ _ \_   _|_   _|  _  | \ | |
-| |_/ / |__ | |  \/ | | \ `--.  | | | |_/ / /_\ \| |   | | | | | |  \| |
-|    /|  __|| | __  | |  `--. \ | | |    /|  _  || |   | | | | | | . ` |
-| |\ \| |___| |_\ \_| |_/\__/ / | | | |\ \| | | || |  _| |_\ \_/ / |\  |
-\_| \_\____/ \____/\___/\____/  \_/ \_| \_\_| |_/\_/  \___/ \___/\_| \_/
-                                                                        
-                                                                        ");
 
-            Console.WriteLine("Enter your  username:");
 
+            
+            registrUI.RegistrationUI();
+            CenteringCursor();
             Username = Console.ReadLine();
 
             if (Username == null)
             {
                 Console.WriteLine("Username Can not Be Empty");
             }
-            PaswordEncrypting encrypting = new PaswordEncrypting();
-
             CenteringCursorPassword();
-
-
-
-
-
-
 
 
             SaveDetails(encrypting);

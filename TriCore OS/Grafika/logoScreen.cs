@@ -152,7 +152,7 @@
             int centerX = Console.WindowWidth / 2;
             int centerY = Console.WindowHeight / 2;
             int y = centerY + 10;
-            int x = Math.Max(0, centerX - 30);
+            int x = Math.Max(0, centerX - 30);              //to math. som pozeral video na youtube
             Console.SetCursorPosition(x, y);
         }
 

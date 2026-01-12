@@ -32,18 +32,19 @@ public class FileEngine :FileLogin
 
         if (InputUsername != extraction.SavedUserName)
         {
-            Console.WriteLine("wrong name");
+            //Console.WriteLine("wrong name");                //this is for development
             registration.RegisterDetails();
         }
         else if (InputPassword != extraction.SavedPassword)
         {
-            Console.WriteLine("wrong Password");
+            //Console.WriteLine("wrong Password");              //this is for development
 
         }
         else
         {
             Console.Clear();
             Console.WriteLine("Logging In");
+        
             
             for ( int i = 0; i < 10; i++ )
             {
@@ -54,14 +55,18 @@ public class FileEngine :FileLogin
             }
             Console.WriteLine();
             
-            Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
+            //Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
 
         }
 
 
+       
+    }
 
+    
+        
 
 
 
     }
-}
+

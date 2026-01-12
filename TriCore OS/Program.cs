@@ -1,3 +1,10 @@
+﻿using TriCore_OS.BabetaMaster;
+
+Engine engine = new Engine();
+engine.Welcome();
+engine.Menu();
+
+engine.Loading();
 ﻿using TriCore_OS;
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;
@@ -8,6 +15,8 @@ using TriCore_OS.Spustanie_Programov;
 FileEngine engine = new FileEngine();
 loginScreenUI ui = new loginScreenUI();
 MainGraphics mainGraphics = new MainGraphics();
+Main_Engine mainEngine = new Main_Engine();
+mainEngine.Engine();
 
 
 
