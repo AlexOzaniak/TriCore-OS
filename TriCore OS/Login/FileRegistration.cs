@@ -70,7 +70,7 @@ namespace TriCore_OS.Login
             CenteringCursorPassword();
 
 
-           // SaveDetails(encrypting);
+            //SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");
             Process.Start(Environment.ProcessPath!);
 
