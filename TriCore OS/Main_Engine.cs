@@ -12,11 +12,6 @@ namespace TriCore_OS
     {
         // patova classa nepouzivat !!!!!!
 
-        public void Engine()
-        {
-            Console.WriteLine("Tri core");
-            Console.ReadLine();
-
             logoScreen logoScreen = new logoScreen();
             FileEngine fileEngine = new FileEngine();
             AppsList appsList = new AppsList();
@@ -25,9 +20,14 @@ namespace TriCore_OS
             MainGraphics mainGraphics = new MainGraphics();
             LoginDetailsExtraction extraction = new LoginDetailsExtraction();
             Login_Engine loginEngine = new Login_Engine();
+        public void Engine()
+        {
+            Console.WriteLine("Tri core");
+            Console.ReadLine();
+            loginEngine.StartLoginProcess(fileEngine,login);
+
            
 
-            loginEngine.StartLoginProcess(fileEngine,login);
             logoScreen.StartUI();
            Thread.Sleep(2000);
            loginEngine.LoginProcess();
