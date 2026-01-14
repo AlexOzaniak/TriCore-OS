@@ -10,6 +10,7 @@ namespace TriCore_OS.Spustanie_Programov
     {
         public void ShowTime()
         {
+            while (!Console.KeyAvailable || Console.ReadKey(true).Key != ConsoleKey.E)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -17,9 +18,12 @@ namespace TriCore_OS.Spustanie_Programov
                 Console.WriteLine($"      Aktuálny čas: {DateTime.Now:dd.MM.yyyy  HH:mm:ss}");
                 Console.WriteLine("   ───────────────────────────────");
                 Console.ResetColor();
-                Console.WriteLine("\n   Stlač ľubovoľnú klávesu...");
-                Console.ReadKey(true);
+                Console.WriteLine();
+                Console.WriteLine(" Press 'E' to go back to menu ");
+
+                Thread.Sleep(1000);
             }
         }
     }
-}   
+}
+
