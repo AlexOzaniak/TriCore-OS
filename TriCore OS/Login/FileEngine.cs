@@ -33,7 +33,7 @@ public class FileEngine :FileLogin
         if (InputUsername != extraction.SavedUserName)
         {
             //Console.WriteLine("wrong name");                //this is for development
-            registration.RegisterDetails();
+            registration.RegisterDetails(encrypting);
         }
         else if (InputPassword != extraction.SavedPassword)
         {
@@ -55,7 +55,16 @@ public class FileEngine :FileLogin
             }
             Console.WriteLine();
             
-            //Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
+            Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
+            Console.WriteLine("Press any Key to continue ");
+            Console.ReadKey();
+            
+            // po tom ako  sa pouzivatel  uspesne prihlasi zobrazit co sa da -- Patrik
+
+
+
+
+
 
         }
 
