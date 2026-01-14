@@ -40,7 +40,7 @@ namespace TriCore_OS
         loginScreenUI loginUI = new loginScreenUI();
         LoadingGraphics loadingGraphics = new LoadingGraphics();
 
-        internal void CenteringCursor()
+        public void CenteringCursor()
         {
             int centerX = Console.WindowWidth / 2;
             int centerY = Console.WindowHeight / 2;

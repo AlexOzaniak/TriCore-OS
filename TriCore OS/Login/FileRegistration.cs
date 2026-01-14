@@ -19,9 +19,9 @@ namespace TriCore_OS.Login
 
         public string GetRegisterPassword()
         {
-            Console.WriteLine("Enter your  password:");
+            //Console.WriteLine("Enter your  password:");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Keep in mind that if ur Passwords Contains one of theese 'x' 'y' or 'z' You will not be able to log in");
+            //Console.WriteLine("Keep in mind that if ur Passwords Contains one of theese 'x' 'y' or 'z' You will not be able to log in");
             Console.ResetColor();
             Password = Console.ReadLine();
 
@@ -75,7 +75,7 @@ namespace TriCore_OS.Login
             CenteringCursorPassword();
 
 
-            //SaveDetails(encrypting);
+            SaveDetails(encrypting);
             Console.WriteLine("Registration Successful!");
             Process.Start(Environment.ProcessPath!);
 

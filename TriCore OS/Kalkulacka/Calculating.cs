@@ -28,6 +28,11 @@ namespace TriCore_OS.Kalkulacka
                         break;
                     }
                 }
+
+                int numberOfElementsInBrackets = intEnd - intStart - 1;
+                List<string> inside = elements.GetRange(intStart + 1, numberOfElementsInBrackets);
+
+                
             }
 
 

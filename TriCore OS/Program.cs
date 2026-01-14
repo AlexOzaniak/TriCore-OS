@@ -19,8 +19,17 @@ FileLogin login = new FileLogin();
 AppCommandList list = new AppCommandList();
 MomsFood momsFood = new MomsFood();
 Zobrazenie_Casu zobrazenie_Casu = new Zobrazenie_Casu();
+Engine babetta = new Engine();
 
 
+
+
+//babetta.Welcome();
+//babetta.Menu();
+//babetta.PlayGame();
+
+Console.ReadLine();
+engine1.FileStart(login);
 
 zobrazenie_Casu.ShowTime();
 
@@ -29,4 +38,3 @@ zobrazenie_Casu.ShowTime();
 //login_Engine.StartLoginProcess(engine,login);
 //list.ShowCommands();
 //momsFood.WriteFoodRecipes();
-
