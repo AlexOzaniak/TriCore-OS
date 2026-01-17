@@ -9,10 +9,12 @@ public class FileEngine :FileLogin
     Login_Engine Login_Engine = new Login_Engine();
     LoginDetailsExtraction extraction = new LoginDetailsExtraction();
     loginScreenUI logiUi = new loginScreenUI();
+    logoScreen logoUi = new logoScreen();
+
 
     public void FileStart(FileLogin login )
     {
-
+        logoUi.StartUI();
         Console.CursorVisible = true;
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         FilePath = Path.Combine(roamingFolder, "userlogininfo.txt");
