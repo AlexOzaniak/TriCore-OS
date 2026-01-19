@@ -15,15 +15,32 @@ public class FileEngine :FileLogin
     public void FileStart(FileLogin login )
     {
         logoUi.StartUI();
+
+
+    public void FileStart(FileLogin login)
+    {
         Console.CursorVisible = true;
+
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        FilePath = Path.Combine(roamingFolder, "userlogininfo.txt");
-        login.FilePath = this.FilePath;
-        registration.FilePath = this.FilePath;
+        string triCoreFolder = Path.Combine(roamingFolder, "TriCore OS");
+
+        if (!Directory.Exists(triCoreFolder))
+        {
+            Directory.CreateDirectory(triCoreFolder);
+        }
+
+        FilePath = Path.Combine(triCoreFolder, "userlogininfo.txt");
+
+        login.FilePath = FilePath;
+        registration.FilePath = FilePath;
+    
+
 
         logiUi.LoginScreenUIDo();
         // Console.WriteLine("type your username");          //only for development
         Login_Engine.CenteringCursor();
+
+    Console.WriteLine("type your username");
         string InputUsername = Console.ReadLine();
         Login_Engine.CenteringCursorPassword();
         // Console.WriteLine("type your password");            //only for development
