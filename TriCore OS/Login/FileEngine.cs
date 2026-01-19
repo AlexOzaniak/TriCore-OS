@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using TriCore_OS;
+using TriCore_OS.Grafika;
 using TriCore_OS.Login;
 
 public class FileEngine :FileLogin
@@ -7,6 +8,13 @@ public class FileEngine :FileLogin
      FileRegistration registration = new FileRegistration();
     Login_Engine Login_Engine = new Login_Engine();
     LoginDetailsExtraction extraction = new LoginDetailsExtraction();
+    loginScreenUI logiUi = new loginScreenUI();
+    logoScreen logoUi = new logoScreen();
+
+
+    public void FileStart(FileLogin login )
+    {
+        logoUi.StartUI();
 
 
     public void FileStart(FileLogin login)
@@ -28,11 +36,14 @@ public class FileEngine :FileLogin
     
 
 
+        logiUi.LoginScreenUIDo();
+        // Console.WriteLine("type your username");          //only for development
+        Login_Engine.CenteringCursor();
 
     Console.WriteLine("type your username");
         string InputUsername = Console.ReadLine();
         Login_Engine.CenteringCursorPassword();
-        Console.WriteLine("type your password");
+        // Console.WriteLine("type your password");            //only for development
         string InputPassword = Console.ReadLine();
         Console.WriteLine(InputPassword);
         extraction.ExtractLoginDetails(login);

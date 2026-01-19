@@ -14,6 +14,7 @@ namespace TriCore_OS.BabetaMaster
         
         public void Welcome()
         {
+            Console.CursorVisible = false;
             Console.WriteLine("Stlač ENTER.");
             Console.ReadLine();
             Console.Clear();
@@ -127,7 +128,7 @@ namespace TriCore_OS.BabetaMaster
                         break;
                     case '4':
                         music.Stop();
-                        Environment.Exit(0);
+                        Environment.Exit(0);            //treba tu dat aby sa to vratilo do OS menu aplikacii
                         break;
                 }
             }
@@ -266,7 +267,7 @@ namespace TriCore_OS.BabetaMaster
                 Console.SetCursorPosition(5, 6);
                 Console.WriteLine("System: Otvor zoznam");
 
-                string path = @"C:\Users\Lenovo\Desktop\To-Do List.txt";
+                string path = @"C:\Users\smrzo\Desktop\To-Do List.txt";
                 player.RepairList = File.ReadAllLines(path).ToList();
                 char input = char.ToLower(Console.ReadKey(true).KeyChar);
                 if (input == 'l')
@@ -379,7 +380,7 @@ namespace TriCore_OS.BabetaMaster
                     Console.SetCursorPosition(5, 17);
                     Console.WriteLine("System: Kľúč si odložil na svoje miesto");
                     player.Inventory.Remove("6-uholníkový kľúč");
-                    string path = @"C:\Users\Lenovo\Desktop\To-Do List.txt";
+                    string path = @"C:\Users\smrzo\Desktop\To-Do List.txt";
                     player.RepairList = File.ReadAllLines(path).ToList();
                     int x2 = 95;
                     int y2 = 2;
