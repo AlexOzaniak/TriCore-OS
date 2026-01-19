@@ -5,6 +5,7 @@ using TriCore_OS.Login;
 using TriCore_OS.Programs;
 using TriCore_OS.Spustanie_Programov;
 using TriCore_OS.Spustanie_Programov;
+using System.Globalization;
 FileEngine engine1 = new FileEngine();
 Engine enginegame = new Engine();
 loginScreenUI ui = new loginScreenUI();
@@ -19,6 +20,12 @@ FileLogin login = new FileLogin();
 AppCommandList list = new AppCommandList();
 MomsFood momsFood = new MomsFood();
 Zobrazenie_Casu zobrazenie_Casu = new Zobrazenie_Casu();
+//engine1.FileStart(login);
+StartingProgram startingProgram = new StartingProgram();
+AppCommandList appCommandList = new AppCommandList();
+appCommandList.ShowCommands();
+
+
 
 
 
