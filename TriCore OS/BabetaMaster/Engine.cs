@@ -14,6 +14,7 @@ namespace TriCore_OS.BabetaMaster
         
         public void Welcome()
         {
+            Console.CursorVisible = false;
             Console.WriteLine("Stlač ENTER.");
             Console.ReadLine();
             Console.Clear();

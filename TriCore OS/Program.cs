@@ -5,6 +5,7 @@ using TriCore_OS.Login;
 using TriCore_OS.Programs;
 using TriCore_OS.Spustanie_Programov;
 using TriCore_OS.Spustanie_Programov;
+using TriCore_OS.Kalkulacka;
 FileEngine engine1 = new FileEngine();
 Engine enginegame = new Engine();
 loginScreenUI ui = new loginScreenUI();
@@ -20,7 +21,10 @@ AppCommandList list = new AppCommandList();
 MomsFood momsFood = new MomsFood();
 Zobrazenie_Casu zobrazenie_Casu = new Zobrazenie_Casu();
 Engine babetta = new Engine();
+Engine_Calculator kalkulacka = new Engine_Calculator();
 
+Console.ReadLine();
+kalkulacka.StartCalculator();
 
 
 
@@ -28,10 +32,10 @@ Engine babetta = new Engine();
 //babetta.Menu();
 //babetta.PlayGame();
 
-Console.ReadLine();
-engine1.FileStart(login);
+//Console.ReadLine();
+//engine1.FileStart(login);
 
-zobrazenie_Casu.ShowTime();
+//zobrazenie_Casu.ShowTime();
 
 
 
