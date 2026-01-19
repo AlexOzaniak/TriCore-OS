@@ -8,7 +8,6 @@ using TriCore_OS.Spustanie_Programov;
 using System.Globalization;
 FileEngine engine1 = new FileEngine();
 Engine enginegame = new Engine();
-
 loginScreenUI ui = new loginScreenUI();
 MainGraphics mainGraphics = new MainGraphics();
 Main_Engine mainEngine = new Main_Engine();
@@ -30,4 +29,11 @@ appCommandList.ShowCommands();
 
 
 
+zobrazenie_Casu.ShowTime();
+
+
+
+//login_Engine.StartLoginProcess(engine,login);
+//list.ShowCommands();
+//momsFood.WriteFoodRecipes();
 
