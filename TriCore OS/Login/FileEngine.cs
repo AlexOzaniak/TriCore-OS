@@ -12,11 +12,6 @@ public class FileEngine :FileLogin
     logoScreen logoUi = new logoScreen();
 
 
-    public void FileStart(FileLogin login )
-    {
-        logoUi.StartUI();
-
-
     public void FileStart(FileLogin login)
     {
         Console.CursorVisible = true;
@@ -40,7 +35,6 @@ public class FileEngine :FileLogin
         // Console.WriteLine("type your username");          //only for development
         Login_Engine.CenteringCursor();
 
-    Console.WriteLine("type your username");
         string InputUsername = Console.ReadLine();
         Login_Engine.CenteringCursorPassword();
         // Console.WriteLine("type your password");            //only for development
