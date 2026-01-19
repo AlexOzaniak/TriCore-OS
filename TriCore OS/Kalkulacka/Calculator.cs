@@ -12,8 +12,11 @@ namespace TriCore_OS.Kalkulacka
 
         public void Run()
         {
+            string input = "";
+            while (input != "end")
+            { 
             Console.WriteLine("Enter your expression (e.g., 2 + (3 * 4) / 2):");
-            string input = Console.ReadLine();
+            input = Console.ReadLine().Trim();
 
             try
             {
@@ -26,6 +29,7 @@ namespace TriCore_OS.Kalkulacka
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
+            }
             }
         }
 

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TriCore_OS.BabetaMaster;
+using TriCore_OS.Grafika;
+using TriCore_OS.Kalkulacka;
 
 namespace TriCore_OS.Spustanie_Programov
 {
@@ -17,9 +19,12 @@ namespace TriCore_OS.Spustanie_Programov
         MusicPlayer babetaplayer = new MusicPlayer();
         Player babettaplayer = new Player();
         SecretKolkus kolkus1 = new SecretKolkus();
+        AppsList AppsList = new AppsList();
+        Engine_Calculator calculator = new Engine_Calculator();
 
         public void StartProgram()
         {
+            AppsList.AppsListDo();
             string input = "";
             while (input != "END")
             {
@@ -30,10 +35,11 @@ namespace TriCore_OS.Spustanie_Programov
                 input = Console.ReadLine().Trim();
                 if (input == "calc")
                 {
-                    //spustenie Misovej/patovej kalkulacky 
+                    //spustenie Misovej/patovej kalkulacky
+                    calculator.StartCalculator();
                     return;
                 }
-                else if (input == "babbeta")
+                else if (input == "babetta")
                 {
                     //spustenie babbetamastera
                     babetaengine.Loading();

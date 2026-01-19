@@ -14,7 +14,7 @@ namespace TriCore_OS.Spustanie_Programov
             StartingProgram startingProgram1 = new StartingProgram();
             Console.ReadKey();
             
-            
+            //treba tu este pridat aby sa to vratilo do menu po napisani end
             Console.WriteLine("Showing List Of All  Commands");
             Console.ForegroundColor = ConsoleColor.Cyan;
             for (int j = 0; j < 2; j++)
@@ -69,7 +69,7 @@ namespace TriCore_OS.Spustanie_Programov
             Console.WriteLine("kolkus - hmm what could that be ??");
 
            
-            startingProgram1.StartProgram();
+            //startingProgram1.StartProgram();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             for (int j = 0; j < 2; j++)

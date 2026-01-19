@@ -18,6 +18,7 @@ namespace TriCore_OS.Kalkulacka
             Console.WriteLine("Vitaj v TriCore Calculator!");
             Thread.Sleep(2000);
             Console.Clear();
+           
             calculator.Run();
 
         }

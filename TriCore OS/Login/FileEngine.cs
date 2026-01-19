@@ -3,10 +3,9 @@ using TriCore_OS;
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;
 
-public class FileEngine :FileLogin
+public class FileEngine : FileLogin
 {
-     FileRegistration registration = new FileRegistration();
-    Login_Engine Login_Engine = new Login_Engine();
+    FileRegistration registration = new FileRegistration();
     LoginDetailsExtraction extraction = new LoginDetailsExtraction();
     loginScreenUI logiUi = new loginScreenUI();
     logoScreen logoUi = new logoScreen();
@@ -28,15 +27,15 @@ public class FileEngine :FileLogin
 
         login.FilePath = FilePath;
         registration.FilePath = FilePath;
-    
+
 
 
         logiUi.LoginScreenUIDo();
         // Console.WriteLine("type your username");          //only for development
-        Login_Engine.CenteringCursor();
+        CenteringCursor();
 
         string InputUsername = Console.ReadLine();
-        Login_Engine.CenteringCursorPassword();
+        CenteringCursorPassword();
         // Console.WriteLine("type your password");            //only for development
         string InputPassword = Console.ReadLine();
         Console.WriteLine(InputPassword);
@@ -59,38 +58,45 @@ public class FileEngine :FileLogin
         {
             Console.Clear();
             Console.WriteLine("Logging In");
-        
-            
-            for ( int i = 0; i < 10; i++ )
+
+
+            for (int i = 0; i < 10; i++)
             {
-                
+
                 Console.Write(">");
                 Thread.Sleep(400);
-                
+
             }
             Console.WriteLine();
-            
+
             Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
             Console.WriteLine("Press any Key to continue ");
             Console.ReadKey();
-            
+        }
+    }
+
             // po tom ako  sa pouzivatel  uspesne prihlasi zobrazit co sa da -- Patrik
 
 
-
-
-
-
-        }
-
-
-       
+    internal void CenteringCursorPassword()
+    {
+        int centerX = Console.WindowWidth / 2;
+        int centerY = Console.WindowHeight / 2;
+        int y = centerY + 5;
+        int x = Math.Max(0, centerX - 17);
+        Console.SetCursorPosition(x, y);
+    }
+    public void CenteringCursor()
+    {
+        int centerX = Console.WindowWidth / 2;
+        int centerY = Console.WindowHeight / 2;
+        int y = centerY + 3;
+        int x = Math.Max(0, centerX - 17);
+        Console.SetCursorPosition(x, y);
     }
 
-    
-        
 
 
+}
 
-    }
 
