@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TriCore_OS.BabetaMaster;
+using TriCore_OS.Grafika;
+using TriCore_OS.Kalkulacka;
+using TriCore_OS.Programs;
 
 namespace TriCore_OS.Spustanie_Programov
 {
@@ -17,39 +20,68 @@ namespace TriCore_OS.Spustanie_Programov
         MusicPlayer babetaplayer = new MusicPlayer();
         Player babettaplayer = new Player();
         SecretKolkus kolkus1 = new SecretKolkus();
+       // AppsList AppsList = new AppsList();
+        Engine_Calculator calculator = new Engine_Calculator();
+        StartGame StartGame = new StartGame();
+        Menu babettaMenu = new Menu();
+        Zobrazenie_Casu time = new Zobrazenie_Casu();
 
         public void StartProgram()
         {
+            //AppsList.AppsListDo();
             string input = "";
-            while (input != "END")
+            while (input != "end")
             {
+                
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                //AppsList.BuildAppsList();
                 Console.ResetColor();
                 Console.Write("Which app do u want to open:");
 
                Console.ForegroundColor = ConsoleColor.Green;
-                input = Console.ReadLine().Trim();
+                input = Console.ReadLine().Trim().ToLower();
                 if (input == "calc")
                 {
-                    //spustenie Misovej/patovej kalkulacky 
+                    //spustenie Misovej/patovej kalkulacky
+                    calculator.StartCalculator();
                     return;
                 }
-                else if (input == "babbeta")
+                else if (input == "babetta")
                 {
                     //spustenie babbetamastera
-                    babetaengine.Loading();
-                    babetaengine.Welcome();
-                    babetaengine.Menu();
-                    babetaengine.AboutTheGame();
-
-
-
+                    StartGame.GameStart();
+                    babettaMenu.menu();
+                }
+                else if (input == "recipes")
+                {
+                    MomsFood momsFood = new MomsFood();
+                    momsFood.WriteFoodRecipes();
                 }
                 else if (input == "kolkus")
                 {
 
                     kolkus1.Main();
+
+                }
+                else if (input == "time")
+                {
+                    time.ShowTime();
+
+                }
+                else if (input == "shutdown")
+                {
+                    Environment.Exit(0);
+
+                }
+                else if (input == "restart") 
+                {
+                    Console.ResetColor();
+                    Process.Start(Environment.ProcessPath);
+                    Environment.Exit(0);
                     
                 }
+                
 
                 try
                 {
