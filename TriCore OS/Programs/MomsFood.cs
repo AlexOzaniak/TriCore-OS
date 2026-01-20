@@ -29,7 +29,7 @@ namespace TriCore_OS.Programs
                 AppsList appsList = new AppsList();
                 appsList.BuildAppsList();
                     break; 
-                Console.Clear();
+               
             }
         }
 
