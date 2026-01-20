@@ -5,11 +5,12 @@ namespace TriCore_OS.BabetaMaster
     public class Menu
     {
         private MusicPlayer music;
-      Play babettaPlay = new Play();
+      
        
 
-        public bool menu()
+        public bool menu( )
         {
+            Play babettaPlay = new Play();
             while (true)
             {
                 music = new MusicPlayer();

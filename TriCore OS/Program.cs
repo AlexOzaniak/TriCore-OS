@@ -7,6 +7,8 @@ logoScreen logoloadingUI  = new logoScreen();
 FileEngine loginRegistration = new FileEngine();
 FileRegistration registration = new FileRegistration();
 AppsMenuContr mainMenu = new AppsMenuContr();
+StartGame startGame = new StartGame();
+
 
 
 
