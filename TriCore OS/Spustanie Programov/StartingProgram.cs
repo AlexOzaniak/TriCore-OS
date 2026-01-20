@@ -40,7 +40,7 @@ namespace TriCore_OS.Spustanie_Programov
                 Console.Write("Which app do u want to open:");
 
                Console.ForegroundColor = ConsoleColor.Green;
-                input = Console.ReadLine().Trim();
+                input = Console.ReadLine().Trim().ToLower();
                 if (input == "calc")
                 {
                     //spustenie Misovej/patovej kalkulacky
@@ -62,13 +62,26 @@ namespace TriCore_OS.Spustanie_Programov
                 {
 
                     kolkus1.Main();
-                    
+
                 }
-                else if ( input == "time")
+                else if (input == "time")
                 {
                     time.ShowTime();
 
                 }
+                else if (input == "shutdown")
+                {
+                    Environment.Exit(0);
+
+                }
+                else if (input == "restart") 
+                {
+                    Console.ResetColor();
+                    Process.Start(Environment.ProcessPath);
+                    Environment.Exit(0);
+                    
+                }
+                
 
                 try
                 {
