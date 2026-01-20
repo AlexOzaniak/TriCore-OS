@@ -8,7 +8,7 @@ namespace TriCore_OS.Grafika
 {
     internal class Registration
     {
-        private void DoRegistration()
+        private  void DoRegistration()
         {
             string[] regist = new string[]
             {

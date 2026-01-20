@@ -11,9 +11,10 @@ namespace TriCore_OS.Spustanie_Programov
     {
         public void ShowCommands()
         {
+            StartingProgram startingProgram1 = new StartingProgram();
             Console.ReadKey();
             
-            
+            //treba tu este pridat aby sa to vratilo do menu po napisani end
             Console.WriteLine("Showing List Of All  Commands");
             Console.ForegroundColor = ConsoleColor.Cyan;
             for (int j = 0; j < 2; j++)
@@ -60,6 +61,16 @@ namespace TriCore_OS.Spustanie_Programov
             DelayForCommands();
             Console.WriteLine("regedit - Registry Editor");
             DelayForCommands();
+            Console.WriteLine("babbeta - Babbeta Master Skalite Edition");
+            DelayForCommands();
+            Console.WriteLine("END - Go back to home screen");
+            DelayForCommands();
+    
+            Console.WriteLine("kolkus - hmm what could that be ??");
+
+           
+            //startingProgram1.StartProgram();
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             for (int j = 0; j < 2; j++)
             {
@@ -73,6 +84,7 @@ namespace TriCore_OS.Spustanie_Programov
                 Console.WriteLine();
             }
             Console.ResetColor();
+
 
 
 

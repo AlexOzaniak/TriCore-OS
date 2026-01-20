@@ -13,13 +13,16 @@ namespace TriCore_OS.Login
 
     public class FileRegistration : FileLogin
     {
+        
 
 
 
         public string GetRegisterPassword()
         {
             //Console.WriteLine("Enter your  password:");
-
+            Console.ForegroundColor = ConsoleColor.Red;
+            //Console.WriteLine("Keep in mind that if ur Passwords Contains one of theese 'x' 'y' or 'z' You will not be able to log in");
+            Console.ResetColor();
             Password = Console.ReadLine();
 
             if (Password == null)
@@ -40,7 +43,7 @@ namespace TriCore_OS.Login
 
 
 
-        public void RegisterDetails()
+        public void RegisterDetails(PaswordEncrypting encrypting)
         {
             FileEngine rngine = new FileEngine();
             
@@ -51,15 +54,17 @@ namespace TriCore_OS.Login
             else
             {
                 Console.WriteLine("File does not exist.");
+
             }
 
-
-
+            Registration registrationGraphics = new Registration();
+            registrationGraphics.RegistrationUI();
+            
 
 
 
             
-            registrUI.RegistrationUI();
+            //registrUI.RegistrationUI();
             CenteringCursor();
             Username = Console.ReadLine();
 
@@ -81,6 +86,7 @@ namespace TriCore_OS.Login
         }
         public string EncryptedPass(PaswordEncrypting encrypting)
         {
+            
             string EncrypptedPassword = encrypting.Encryption();
             return EncrypptedPassword;
         }
