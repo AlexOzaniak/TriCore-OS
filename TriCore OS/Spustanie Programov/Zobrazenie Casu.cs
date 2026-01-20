@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Spustanie_Programov
 {
@@ -10,7 +8,9 @@ namespace TriCore_OS.Spustanie_Programov
     {
         public void ShowTime()
         {
-            while (!Console.KeyAvailable || Console.ReadKey(true).Key != ConsoleKey.E)
+            bool timeStatus = true;
+
+            while (timeStatus)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -21,9 +21,29 @@ namespace TriCore_OS.Spustanie_Programov
                 Console.WriteLine();
                 Console.WriteLine(" Press 'E' to go back to menu ");
 
+                
                 Thread.Sleep(1000);
+
+                // kontrola vstupu
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKey key = Console.ReadKey(true).Key;
+
+                    if (key == ConsoleKey.E)
+                    {
+                        timeStatus = false; 
+                    }
+                    if ( !timeStatus )
+                    {
+                        Console.Clear();
+                        Console.ResetColor();
+                            AppsList appsList = new AppsList();
+                        appsList.BuildAppsList();
+                    }
+                }
             }
         }
     }
 }
+
 

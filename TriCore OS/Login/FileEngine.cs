@@ -2,6 +2,7 @@
 using TriCore_OS;
 using TriCore_OS.Grafika;
 using TriCore_OS.Login;
+using TriCore_OS.Spustanie_Programov;
 
 public class FileEngine : FileLogin
 {
@@ -9,10 +10,17 @@ public class FileEngine : FileLogin
     LoginDetailsExtraction extraction = new LoginDetailsExtraction();
     loginScreenUI logiUi = new loginScreenUI();
     logoScreen logoUi = new logoScreen();
+    AppCommandList appCommandList = new AppCommandList();
+    AppsList apps = new AppsList();
+    PaswordEncrypting encrypting = new PaswordEncrypting();
+ 
+    StartingProgram startingProgram = new StartingProgram();
+    
 
 
     public void FileStart(FileLogin login)
     {
+        
         Console.CursorVisible = true;
 
         string roamingFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -40,7 +48,7 @@ public class FileEngine : FileLogin
         string InputPassword = Console.ReadLine();
         Console.WriteLine(InputPassword);
         extraction.ExtractLoginDetails(login);
-        PaswordEncrypting encrypting = new PaswordEncrypting();
+      
 
 
 
@@ -51,7 +59,9 @@ public class FileEngine : FileLogin
         }
         else if (InputPassword != extraction.SavedPassword)
         {
-            //Console.WriteLine("wrong Password");              //this is for development
+            //Console.WriteLine("wrong Password"); 
+            //this is for development
+            registration.RegisterDetails(encrypting);
 
         }
         else
@@ -72,6 +82,13 @@ public class FileEngine : FileLogin
             Console.WriteLine($"{InputUsername.ToUpper()} Welcome Back!");
             Console.WriteLine("Press any Key to continue ");
             Console.ReadKey();
+            Console.Clear();
+
+         
+            apps.BuildAppsList();
+           
+            
+           // appCommandList.ShowCommands();
         }
     }
 

@@ -11,6 +11,9 @@ namespace TriCore_OS.Spustanie_Programov
     {
         public void ShowCommands()
         {
+            // lowkey nepotrebne LOL!!
+            AppsMenuContr appsMenuContr = new AppsMenuContr();
+           // appsMenuContr.AppsMenuControl();
             StartingProgram startingProgram1 = new StartingProgram();
             Console.ReadKey();
             

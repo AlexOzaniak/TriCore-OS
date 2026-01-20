@@ -12,12 +12,13 @@ StartGame startGame = new StartGame();
 
 
 
-Console.ReadLine();
 
 
-logoloadingUI.StartUI();
+
+
+
+//logoloadingUI.StartUI();
 loginRegistration.FileStart(registration);
-mainMenu.AppsMenuControl();
+//mainMenu.AppsMenuControl();
 
 
-Console.ReadLine();

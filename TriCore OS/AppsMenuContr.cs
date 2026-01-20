@@ -18,12 +18,16 @@ namespace TriCore_OS
         StartingProgram appslist = new StartingProgram();
         AppCommandList appcommandlist = new AppCommandList();
         Menu BabettaMenu = new Menu();
+        AppsList appsList = new AppsList(); 
         internal void AppsMenuControl()
         {
             Console.Clear();
             while (true)
             {
-                SwitchToApp();
+                appsList.BuildAppsList();
+                // Nepotrebne LOL!!
+
+                //SwitchToApp();
             }
         }
 

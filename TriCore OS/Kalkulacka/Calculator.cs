@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Kalkulacka
 {
     internal class Calculator
     {
          ExpressionSolver solver = new ExpressionSolver();
+       
 
         public void Run()
         {
@@ -22,10 +24,13 @@ namespace TriCore_OS.Kalkulacka
 
             if (input.ToLower() == "end")
             {
+                    AppsList appsList = new AppsList();
                 inCalculator = false;
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.White;
-                    continue;
+                    appsList.BuildAppsList();
+                    break;
+                    
             }
             try
             {

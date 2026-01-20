@@ -1,4 +1,5 @@
 ﻿using System;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.BabetaMaster
 {
@@ -42,6 +43,8 @@ namespace TriCore_OS.BabetaMaster
                     case '4':
                         music.Stop();
                         Console.Clear();
+                        AppsList appsList = new AppsList();
+                        appsList.BuildAppsList();
                         return true;
                 }
             }
