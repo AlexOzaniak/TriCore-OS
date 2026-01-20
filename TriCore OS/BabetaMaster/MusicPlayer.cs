@@ -13,7 +13,7 @@ namespace TriCore_OS.BabetaMaster
         SoundPlayer player;
         private readonly string MusicPath =
             Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+               Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 "MusicBabetaMaster"
             );
 

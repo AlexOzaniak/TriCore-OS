@@ -3,56 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Spustanie_Programov;
 
 namespace TriCore_OS.Grafika
 {
     internal class AppsList
     {
-        private void BuildAppsList()
+        StartingProgram startingProgram = new StartingProgram();
+        public void BuildAppsList()
         {
+            Console.Clear();
+            Console.ResetColor();
+
             string[] AppsList = new string[]
             {
-"████████████████████████████████████████████████████████████████████████████████████████████████████████",
-"█                                                                                                      █",
-"█      ████████╗██████╗ ██╗      ██████╗ ██████╗ ██████╗ ███████╗                                      █",
-"█      ╚══██╔══╝██╔══██╗██║     ██╔════╝██╔═══██╗██╔══██╗██╔════╝                                      █",
-"█         ██║   ██████╔╝██║     ██║     ██║   ██║██████╔╝█████╗                                        █",
-"█         ██║   ██╔══██╗██║     ██║     ██║   ██║██╔══██╗██╔══╝                                        █",
-"█         ██║   ██║  ██║██║     ╚██████╗╚██████╔╝██║  ██║███████╗                                      █",
-"█         ╚═╝   ╚═╝  ╚═╝╚═╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝                                      █",
-"█                                                                                                      █",
-"█                               A P P L I C A T I O N S   L I S T                                      █",
-"█                                                                                                      █",
-"████████████████████████████████████████████████████████████████████████████████████████████████████████",
-"█                                                                                                      █",
-"█    ┌─────┬───────────────────────────────┬───────────────┬───────────────┬───────────────┐           █",
-"█    │  #  │ Application Name              │ Version       │ Status        │ Category      │           █",
-"█    ├─────┼───────────────────────────────┼───────────────┼───────────────┼───────────────┤           █",
-"█    │ 01  │ Calculator                    │ v1.2.0        │ Running       │ System        │           █",
-"█    │ 02  │ Text editor                   │ v1.5.3        │ Idle          │ Tool          │           █",
-"█    │ 03  │ Basic text editor             │ v2.0.1        │ Running       │ Tool          │           █",
-"█    │ 04  │ MS pain for 3D drawing        │ v1.1.4        │ Active        │ Tool          │           █",
-"█    │ 05  │ File explorer                 │ v3.4.2        │ Idle          │ System        │           █",
-"█    │ 06  │ Task manager                  │ v1.0.0        │ Running       │ System        │           █",
-"█    │ 07  │ Command Prompt                │ v2.2.6        │ Active        │ System        │           █",
-"█    │ 08  │ PowerShell termina            │ v1.8.9        │ Idle          │ System        │           █",
-"█    │ 09  │ Screen magnifier              │ v1.3.1        │ Idle          │ Tool          │           █",
-"█    │ 10  │ ScreenShot tool               │ v1.0.7        │ Scheduled     │ Tool          │           █",
-"█    │ 11  │ Spotify music player          │ v1.0.7        │ Scheduled     │ App           │           █",                                                                                                     
-"█    │ 12  │ Google Chrome browser         │ v1.0.7        │ Scheduled     │ Network       │           █",
-"█    │ 13  │ Windows Media Player          │ v1.0.7        │ Scheduled     │ System        │           █",                                                                                                      
-"█    │ 14  │ Registry Editor               │ v1.0.7        │ Scheduled     │ System        │           █",
-"█    └─────┴───────────────────────────────┴───────────────┴───────────────┴───────────────┘           █",
-"█                                                                                                      █",
-"█   [ ENTER ] Launch App      [ DEL ] Uninstall      [ F5 ] Refresh      [ ESC ] Back to Home          █",
-"█                                                                                                      █",
-"████████████████████████████████████████████████████████████████████████████████████████████████████████"
-};
+ "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████",
+ "█                                                                                                                  █",
+ "█      ████████╗██████╗ ██╗      ██████╗ ██████╗ ██████╗ ███████╗                                                  █",
+ "█      ╚══██╔══╝██╔══██╗██║     ██╔════╝██╔═══██╗██╔══██╗██╔════╝                                                  █",
+ "█         ██║   ██████╔╝██║     ██║     ██║   ██║██████╔╝█████╗                                                    █",
+ "█         ██║   ██╔══██╗██║     ██║     ██║   ██║██╔══██╗██╔══╝                                                    █",
+ "█         ██║   ██║  ██║██║     ╚██████╗╚██████╔╝██║  ██║███████╗                                                  █",
+ "█         ╚═╝   ╚═╝  ╚═╝╚═╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝                                                  █",
+ "█                                                                                                                  █",
+ "█                                      A P P L I C A T I O N S   L I S T                                           █",
+ "█                                                                                                                  █",
+ "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████",
+ "█                                                                                                                  █",
+ "█ ┌─────┬───────────────────────────────┬─────────┬───────────┬───────────┬──────────────┐                         █",
+ "█ │  #  │ Application Name              │ Version │ Status    │ Category  │ Command      │                         █",
+ "█ ├─────┼───────────────────────────────┼─────────┼───────────┼───────────┼──────────────┤                         █",
+ "█ │ 01  │ Calculator                    │ v1.2.0  │ Idle      │ System    │ calc         │                         █",
+ "█ │ 02  │ Text editor (Notepad)         │ v1.5.3  │ Idle      │ Tool      │ notepad      │                         █",
+ "█ │ 03  │ MS Paint                      │ v1.1.4  │ Idle      │ Tool      │ mspaint      │                         █",
+ "█ │ 04  │ File Explorer                 │ v3.4.2  │ Running   │ System    │ explorer     │                         █",
+ "█ │ 05  │ Task Manager                  │ v1.0.0  │ Running   │ System    │ taskmgr      │                         █",
+ "█ │ 06  │ Command Prompt                │ v2.2.6  │ Idle      │ System    │ cmd          │                         █",
+ "█ │ 07  │ PowerShell Terminal           │ v1.8.9  │ Idle      │ System    │ powershell   │                         █",
+ "█ │ 08  │ Screen Magnifier              │ v1.3.1  │ Idle      │ Tool      │ magnify      │                         █",
+ "█ │ 09  │ Snipping Tool                 │ v1.0.7  │ Idle      │ Tool      │ snippingtool │                         █",
+ "█ │ 10  │ Spotify Music Player          │ v1.0.7  │ Idle      │ App       │ spotify      │                         █",
+ "█ │ 11  │ Google Chrome Browser         │ v1.0.7  │ Idle      │ Network   │ chrome       │                         █",
+ "█ │ 12  │ Windows Media Player          │ v1.0.7  │ Idle      │ System    │ wmplayer     │                         █",
+ "█ │ 13  │ Registry Editor               │ v1.0.7  │ Idle      │ System    │ regedit      │                         █",
+ "█ │ 14  │ Recipes                       │ v0.1.0  │ Coming    │ App       │ recipes      │                         █",
+ "█ │ 15  │ Babbeta Master Skalite        │ v0.9.9  │ Custom    │ Custom    │ babetta      │                         █",
+ "█ │ 16  │ Kolkus ???                    │ v?.?.?  │ Unknown   │ Mystery   │ kolkus       │                         █",
+ "█ │ 17  │ System Time                   │ v1.0.0  │ Idle      │ System    │ time         │                         █",
+ "█ └─────┴───────────────────────────────┴─────────┴───────────┴───────────┴──────────────┘                         █",
+ "█                                                                                                                  █",
+ "█   ┌─────────────┐    ┌─────────────┐                                                                             █",
+ "█   │  Shutdown   │    │   Restart   │                                                                             █",
+ "█   │     ⏻      |    │    ⟳        │                                                                             █",
+ "█   └─────────────┘    └─────────────┘                                                                             █",
+ "█                                                                                                                  █",
+ "████████████████████████████████████████████████████████████████████████████████████████████████████████████████████"
+            };
+           
+
+
+
+
 
 
             int StartY = (Console.WindowHeight / 2) - (AppsList.Length / 2);
             int widthConsole = Console.WindowWidth;
 
+            
             for (int i = 0; i < AppsList.Length; i++)
             {
                 string line = AppsList[i];
@@ -69,13 +86,11 @@ namespace TriCore_OS.Grafika
                 {
                     Console.WriteLine("Error!!");
                 }
+               
             }
+            startingProgram.StartProgram();
         }
-        public void AppsListDo()
-        {
-            Console.Clear();
-            BuildAppsList();
-        }
+        
 
     }
 }

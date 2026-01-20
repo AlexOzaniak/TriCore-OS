@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Spustanie_Programov
 {
@@ -75,7 +76,9 @@ namespace TriCore_OS.Spustanie_Programov
             Console.ReadKey();
 
             Console.Clear();
-            appCommandList1.ShowCommands();
+            Console.ResetColor();
+            AppsList appsList = new AppsList();
+            appsList.BuildAppsList();
         }
 
         static void WriteLineColor(string text, ConsoleColor color)

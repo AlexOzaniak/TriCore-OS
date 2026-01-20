@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.Grafika;
 
 namespace TriCore_OS.Programs
 {
@@ -24,8 +25,11 @@ namespace TriCore_OS.Programs
                 string again = Console.ReadLine().ToLower();
                 Console.Clear();
                 if (again != "y")
+                    Console.ResetColor();
+                AppsList appsList = new AppsList();
+                appsList.BuildAppsList();
                     break; 
-                Console.Clear();
+               
             }
         }
 
