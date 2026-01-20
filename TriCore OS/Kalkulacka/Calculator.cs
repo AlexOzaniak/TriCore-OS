@@ -12,12 +12,21 @@ namespace TriCore_OS.Kalkulacka
 
         public void Run()
         {
+            
+            bool inCalculator = true;   
             string input = "";
-            while (input != "end")
+            while (inCalculator)
             { 
             Console.WriteLine("Enter your expression (e.g., 2 + (3 * 4) / 2):");
             input = Console.ReadLine().Trim();
 
+            if (input.ToLower() == "end")
+            {
+                inCalculator = false;
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.White;
+                    continue;
+            }
             try
             {
                 List<string> tokens = Tokenize(input);
@@ -31,6 +40,7 @@ namespace TriCore_OS.Kalkulacka
                 Console.WriteLine($"Error: {ex.Message}");
             }
             }
+
         }
 
         private double ProcessBrackets(List<string> tokens)

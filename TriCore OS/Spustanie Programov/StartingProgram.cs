@@ -21,13 +21,19 @@ namespace TriCore_OS.Spustanie_Programov
         SecretKolkus kolkus1 = new SecretKolkus();
         AppsList AppsList = new AppsList();
         Engine_Calculator calculator = new Engine_Calculator();
+        StartGame StartGame = new StartGame();
+        Menu babettaMenu = new Menu();
 
         public void StartProgram()
         {
             AppsList.AppsListDo();
             string input = "";
-            while (input != "END")
+            while (input != "end")
             {
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                AppsList.AppsListDo();
                 Console.ResetColor();
                 Console.Write("Which app do u want to open:");
 
@@ -42,13 +48,8 @@ namespace TriCore_OS.Spustanie_Programov
                 else if (input == "babetta")
                 {
                     //spustenie babbetamastera
-                    babetaengine.Loading();
-                    babetaengine.Welcome();
-                    babetaengine.Menu();
-                    babetaengine.AboutTheGame();
-
-
-
+                    StartGame.GameStart();
+                    babettaMenu.menu();
                 }
                 else if (input == "kolkus")
                 {

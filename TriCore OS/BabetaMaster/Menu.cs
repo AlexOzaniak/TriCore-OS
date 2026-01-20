@@ -1,39 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TriCore_OS.BabetaMaster
 {
     public class Menu
     {
-        private MusicPlayer music;     
-        
+        private MusicPlayer music;
+       private Play babettaPlay;
+       public menuPlay(Play babettaplay)
+        {
+            babettaPlay = babettaplay;
+        }
+       
+
         public bool menu()
         {
             while (true)
-            {              
+            {
                 music = new MusicPlayer();
                 music.Play("MenuSong.wav");
                 Console.Clear();
-                Thread.Sleep(500);
+                System.Threading.Thread.Sleep(500);
                 Console.SetCursorPosition(70, 18);
-                Console.WriteLine("1. HRAŤ");               
+                Console.WriteLine("1. HRAŤ");
                 Console.SetCursorPosition(70, 21);
                 Console.WriteLine("2. NASTAVENIA");
                 Console.SetCursorPosition(70, 24);
                 Console.WriteLine("3. O HRE");
                 Console.SetCursorPosition(70, 27);
                 Console.WriteLine("4. KONIEC");
-                ;
                 char input = char.ToLower(Console.ReadKey(true).KeyChar);
                 switch (input)
                 {
                     case '1':
                         loading();
                         music.Stop();
-                        return true; 
+                        babettaPlay.PlayGame();
+                        break;
                     case '2':
                         Settings();
                         break;
@@ -42,8 +44,8 @@ namespace TriCore_OS.BabetaMaster
                         break;
                     case '4':
                         music.Stop();
-                        Environment.Exit(0);
-                        break;
+                        Console.Clear();
+                        return true;
                 }
             }
         }

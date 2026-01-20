@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using TriCore_OS.BabetaMaster;
 using TriCore_OS.Grafika;
 using TriCore_OS.Kalkulacka;
 using TriCore_OS.Spustanie_Programov;
@@ -16,15 +17,21 @@ namespace TriCore_OS
         Engine_Calculator calculator = new Engine_Calculator();
         StartingProgram appslist = new StartingProgram();
         AppCommandList appcommandlist = new AppCommandList();
+        Menu BabettaMenu = new Menu();
         internal void AppsMenuControl()
         {
             Console.Clear();
-            mainUI.mainGraphics();
-            SwitchToApp();
+            while (true)
+            {
+                SwitchToApp();
+            }
         }
 
         private void SwitchToApp()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
+                mainUI.mainGraphics();
             string appName = Console.ReadLine().Trim();
             switch (appName.ToLower())
             {
@@ -34,8 +41,8 @@ namespace TriCore_OS
                 case "ap":
                     appslist.StartProgram();
                     break;
-                case "bm":
-                    Console.WriteLine("neocakavana chyba skus to spustit cez apps list");
+                case "babetta":
+                   BabettaMenu.menu();
                     break;
                 case "apcom":
                     Console.Clear();
@@ -43,12 +50,15 @@ namespace TriCore_OS
                     break;
                 case "setin":
                     Console.WriteLine("tato aplikacia je este vo vyvoji");
+                    Thread.Sleep(2000);
                     break;
                     case "term":
                         Console.WriteLine("tato aplikacia je este vo vyvoji");
+                        Thread.Sleep(2000);
                     break;
                 default:
-                    Console.WriteLine("App not found.");
+                    Console.WriteLine("App not found. Try again.");
+                    Thread.Sleep(2000);
                     break;
             }
         }

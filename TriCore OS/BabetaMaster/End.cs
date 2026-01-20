@@ -8,6 +8,7 @@ namespace TriCore_OS.BabetaMaster
 {
     public class End
     {
+        Menu menu = new Menu();
         public void end()
         {
             Thread.Sleep(3000);
@@ -26,6 +27,7 @@ namespace TriCore_OS.BabetaMaster
                 Console.SetCursorPosition(92 + i, 20);
                 Console.Write(".");
             }
+            menu.menu();
         }
     }
 }
