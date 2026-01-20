@@ -32,8 +32,7 @@ namespace TriCore_OS.BabetaMaster
                     case '1':
                         loading();
                         music.Stop();
-                        babettaPlay.PlayGame();
-                        break;
+                        return true;
                     case '2':
                         Settings();
                         break;

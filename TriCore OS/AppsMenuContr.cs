@@ -46,7 +46,7 @@ namespace TriCore_OS
                     appslist.StartProgram();
                     break;
                 case "babetta":
-                   BabettaMenu.menu();
+                    BabettaMenu.menu();
                     break;
                 case "apcom":
                     Console.Clear();
