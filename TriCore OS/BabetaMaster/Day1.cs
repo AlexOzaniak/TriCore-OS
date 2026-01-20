@@ -107,31 +107,41 @@ namespace TriCore_OS.BabetaMaster
             Console.Clear();
             Console.SetCursorPosition(5, 2);
             Console.WriteLine("Čas: 13:00");
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
             Console.SetCursorPosition(5, 3);
             Console.WriteLine("System: Naobedoval si sa");
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
             Console.SetCursorPosition(5, 4);
             Console.WriteLine("System: Ideš do garáže opravovať babetu");
-            Thread.Sleep(2000);
+            Thread.Sleep(2500);
             Console.SetCursorPosition(5, 5);
             Console.WriteLine("System: Na stole je zoznam oprav, ktoré musíš urobiť");
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
             Console.SetCursorPosition(5, 6);
             Console.WriteLine("System: Otvor zoznam");
 
-            char input = char.ToLower(Console.ReadKey(true).KeyChar);
-            if (input == 'l')
+            int x = 5;
+            int y = 9;
+
+            while (true)
             {
-                int x = 5;
-                int y = 8;
-                foreach (string line in player.RepairList)
+                char input = char.ToLower(Console.ReadKey(true).KeyChar);
+                if (input == 'l')
                 {
-                    Console.SetCursorPosition(x, y);
-                    Console.WriteLine(line);
-                    y++;
+                    foreach (string line in player.RepairList)
+                    {
+                        Console.SetCursorPosition(x, y);
+                        Console.WriteLine(line);
+                        y++;
+                    }
                 }
-            }                   
+                else
+                {
+                    Thread.Sleep(1000);
+                    Console.SetCursorPosition(5, 7);
+                    Console.WriteLine("System: Skús inú klávesu.");
+                }
+            }
         }
     }
 }
