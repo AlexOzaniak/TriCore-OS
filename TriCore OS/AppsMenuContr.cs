@@ -60,6 +60,11 @@ namespace TriCore_OS
                         Console.WriteLine("tato aplikacia je este vo vyvoji");
                         Thread.Sleep(2000);
                     break;
+                case "shut":
+                    Console.Clear();
+                    //shutUI.ShutingDO();
+                    break;
+
                 default:
                     Console.WriteLine("App not found. Try again.");
                     Thread.Sleep(2000);
