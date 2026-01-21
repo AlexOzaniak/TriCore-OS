@@ -25,6 +25,7 @@ namespace TriCore_OS.Spustanie_Programov
         StartGame StartGame = new StartGame();
         Menu babettaMenu = new Menu();
         Zobrazenie_Casu time = new Zobrazenie_Casu();
+        ShutingDown shutUI = new ShutingDown();
 
         public void StartProgram()
         {
@@ -71,6 +72,7 @@ namespace TriCore_OS.Spustanie_Programov
                 }
                 else if (input == "shutdown")
                 {
+                    shutUI.ShutingDO();
                     Environment.Exit(0);
 
                 }
