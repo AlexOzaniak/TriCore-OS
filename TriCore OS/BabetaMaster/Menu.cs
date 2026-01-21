@@ -44,6 +44,7 @@ namespace TriCore_OS.BabetaMaster
                         music.Stop();
                         Console.Clear();
                         AppsList appsList = new AppsList();
+                        Console.BackgroundColor = ConsoleColor.Black;
                         appsList.BuildAppsList();
                         return true;
                 }

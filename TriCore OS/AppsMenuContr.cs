@@ -62,7 +62,7 @@ namespace TriCore_OS
                     break;
                 case "shut":
                     Console.Clear();
-                    shutUI.ShutingDO();
+                    //shutUI.ShutingDO();
                     break;
 
                 default:
