@@ -17,7 +17,7 @@ StartGame startGame = new StartGame();
 
 
 
-//logoloadingUI.StartUI();
+logoloadingUI.StartUI();
 loginRegistration.FileStart(registration);
 //mainMenu.AppsMenuControl();
 

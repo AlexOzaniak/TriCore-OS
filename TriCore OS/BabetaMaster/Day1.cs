@@ -123,25 +123,16 @@ namespace TriCore_OS.BabetaMaster
             int x = 5;
             int y = 9;
 
-            while (true)
-            {
+           
                 char input = char.ToLower(Console.ReadKey(true).KeyChar);
-                if (input == 'l')
-                {
+                
+                
                     foreach (string line in player.RepairList)
                     {
                         Console.SetCursorPosition(x, y);
                         Console.WriteLine(line);
                         y++;
                     }
-                }
-                else
-                {
-                    Thread.Sleep(1000);
-                    Console.SetCursorPosition(5, 7);
-                    Console.WriteLine("System: Skús inú klávesu.");
-                }
-            }
         }
     }
 }

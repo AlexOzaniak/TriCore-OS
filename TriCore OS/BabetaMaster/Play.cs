@@ -43,42 +43,39 @@ namespace TriCore_OS.BabetaMaster
 
             startGame.GameStart();
 
-            bool startGameFromMenu = menu.menu();
 
-            if (startGameFromMenu)
-            {
-                day1.Morningday1();
-                list.ReadToDoList();
-                plug.ExchangePlug();
-                pipe.ExchangefuelPipe();
+            day1.Morningday1();
+            list.ReadToDoList();
+            plug.ExchangePlug();
+            pipe.ExchangefuelPipe();
 
-                Thread.Sleep(3000);
-                Console.Clear();
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Clear();
+            Thread.Sleep(3000);
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
 
-                sleep.GoSleep();
+            sleep.GoSleep();
 
-                day2.MorningDay2();
-                piston.PistonExchange();
-                ring.ExchangepistonRing();
-                sealing.ExchangeengineSealing();
-                cabling.RepairReplaceCabling();
-                bulbs.ExchangelightBulbs();
+            day2.MorningDay2();
+            piston.PistonExchange();
+            ring.ExchangepistonRing();
+            sealing.ExchangeengineSealing();
+            cabling.RepairReplaceCabling();
+            bulbs.ExchangelightBulbs();
 
-                Thread.Sleep(3000);
-                Console.Clear();
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Clear();
+            Thread.Sleep(3000);
+            Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
 
-                sleep.GoSleep();
+            sleep.GoSleep();
 
-                day3.day3();
-                end.end();
-                menu.menu();
-            }
+            day3.day3();
+            end.end();
+            menu.menu();
+
         }
     }
 }
