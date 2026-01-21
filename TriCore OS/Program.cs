@@ -9,16 +9,5 @@ FileRegistration registration = new FileRegistration();
 AppsMenuContr mainMenu = new AppsMenuContr();
 StartGame startGame = new StartGame();
 
-
-
-
-
-
-
-
-
 logoloadingUI.StartUI();
 loginRegistration.FileStart(registration);
-//mainMenu.AppsMenuControl();
-
-
